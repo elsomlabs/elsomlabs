@@ -1,0 +1,18 @@
+---
+description: Elsom Labs site rules
+alwaysApply: true
+---
+You are editing the Elsom Labs marketing site.
+
+- The site is ONE static file: public/index.html (HTML + CSS + JS together). Do not split it, do not add a framework, bundler or build step unless explicitly asked.
+- Read HANDOFF.md first. It lists the section ids, the scroll-lock system, the carousel constants and what is easy to break.
+- Make exact, narrow edits. Change only what was asked. No refactors, no renames, no "while I'm here" improvements.
+- The file is large (~2,800 lines). Search for ids, class names or function names (grep) instead of reading the whole file.
+- When given a screenshot or reference, copy it closely. Do not add extra features or elements.
+- Never invent metrics, testimonials, client names or statistics. Illustrative sample data must be labelled.
+- The RoutingLab demo (inside #software, template#rlSrc, and reference/routinglab-demo.html) uses invented data only. Never add real customer, technician, job, address or employer data, never link to the real app, never add API calls.
+- Keep three.js r128 from the cdnjs URL already in the file.
+- Keep the dark theme, orange accent and existing fonts (Inter, Geist Mono, Open Sans).
+- After any change, make sure it still works at about 1440px, 1895px and mobile (~400px) widths, and that scroll-lock, the portfolio carousel and the 3D cube still behave.
+- Use British English in visible copy.
+- If asked to revert, restore the previous behaviour exactly (use git).

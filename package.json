@@ -1,0 +1,9 @@
+{
+  "name": "elsomlabs-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Elsom Labs marketing site (single-file static HTML, three.js from CDN)",
+  "scripts": {
+    "start": "npx --yes serve -l 3000 public"
+  }
+}
