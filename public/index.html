@@ -1956,6 +1956,16 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
     if(!dir)return;if(e.target.closest&&e.target.closest('button,a')&&k===' ')return;var y=scrollY;if(!busy&&((dir>0&&y>=lockEnd-2)||(dir<0&&y>lockEnd+2&&y-innerHeight*.6>lockEnd)))return;if(!busy&&dir<0&&y>lockEnd+2){e.preventDefault();glide(lockEnd);return}e.preventDefault();if(busy){pending=dir;return}if(inFree(scrollY,dir)){window.scrollBy({top:dir*innerHeight*.6,behavior:'smooth'});return}var t=next(dir);if(t)glide(t.y)});
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||!on())return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;
     var i=lockSecs.indexOf(el);if(i<0||i>=LOCKN)return;e.preventDefault();build();var y=i===0?0:(el.offsetHeight<=innerHeight*1.08?el.offsetTop+el.offsetHeight/2-innerHeight/2:el.offsetTop);glide(Math.max(0,y));history.replaceState(null,'','#'+id)});
+  /* gentle magnet for Software only (not a lock): if scrolling stops close to it, ease it fully into view. Any wheel, key or touch cancels it. */
+  var swEl=document.getElementById('software'),snapT=0,snapRaf=0;
+  function snapTo(ty){cancelAnimationFrame(snapRaf);var y0=scrollY,d=ty-y0,t0=performance.now(),D=reduce?0:320;
+    if(!D){window.scrollTo({top:ty,behavior:'instant'});return}
+    (function step(now){var f=Math.max(0,Math.min(1,(now-t0)/D));window.scrollTo({top:y0+d*(1-Math.pow(1-f,3)),behavior:'instant'});if(f<1)snapRaf=requestAnimationFrame(step)})(t0)}
+  ['wheel','keydown','touchstart','mousedown'].forEach(function(ev){addEventListener(ev,function(){cancelAnimationFrame(snapRaf)},{passive:true})});
+  addEventListener('scroll',function(){clearTimeout(snapT);if(!swEl||!on())return;snapT=setTimeout(function(){
+    if(busy||blocked())return;var y=scrollY,vh=innerHeight,h=swEl.offsetHeight;if(h>vh*1.08||y<=lockEnd+2)return;
+    var ty=Math.min(document.documentElement.scrollHeight-vh,Math.max(0,swEl.offsetTop+h/2-vh/2)),dist=Math.abs(y-ty);
+    if(dist>2&&dist<vh*.3)snapTo(ty)},180)},{passive:true});
 })();
 
 /* ---------- 3D scene ---------- */
