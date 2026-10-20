@@ -117,7 +117,9 @@ section > .wrap{width:100%}
 .svc .n{font:500 12px/1 var(--mono);color:var(--ink-subtle)}
 .svc h3{font:600 26px/1.1 var(--sans);letter-spacing:-.03em;transition:transform .4s var(--ease),color .3s}
 .svc p{grid-column:2/3;color:var(--ink-muted);font-size:15px;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s var(--ease),opacity .4s,margin .4s}
-.svc:hover p,.svc.on p{max-height:80px;opacity:1;margin-top:8px}
+.svc:hover p,.svc.on p,.svc:focus-within p{max-height:80px;opacity:1;margin-top:8px}
+.svc p .svc-go{color:var(--signal-text);white-space:nowrap;text-decoration:none;font-weight:500}.svc p .svc-go:hover,.svc p .svc-go:focus-visible{text-decoration:underline;text-underline-offset:3px}
+@media (hover:none){.svc p{max-height:none;opacity:1;margin-top:8px}}
 .svc:hover h3,.svc.on h3{transform:translateX(6px)}
 .svc .k{font:500 12px/1 var(--mono);color:var(--ink-subtle)}
 
@@ -861,9 +863,9 @@ html{background:#060507}
       <span class="eyebrow fade"><b>02</b> Services</span>
       <h2 class="h-lg split">Three things, done properly</h2>
       <div class="svc-list" id="svcList">
-        <div class="svc fade on"><span class="n">A</span><h3>Web design</h3><span class="k">Design · Build · CMS</span><p>Marketing sites that load fast, read well and are easy for your team to update.</p></div>
-        <div class="svc fade"><span class="n">B</span><h3>Software</h3><span class="k">Apps · Portals · Tools</span><p>Web apps and internal tools shaped around how your people actually work.</p></div>
-        <div class="svc fade"><span class="n">C</span><h3>Automation</h3><span class="k">Integrations · Workflows</span><p>Connect the tools you already use and take the repetitive steps off your team's plate.</p></div>
+        <div class="svc fade on"><span class="n">A</span><h3>Web design</h3><span class="k">Design · Build · CMS</span><p>Marketing sites that load fast, read well and are easy for your team to update. <a class="svc-go" href="#pricing">See pricing &rarr;</a></p></div>
+        <div class="svc fade"><span class="n">B</span><h3>Software</h3><span class="k">Apps · Portals · Tools</span><p>Web apps and internal tools shaped around how your people actually work. <a class="svc-go" href="#software">See the case study &rarr;</a></p></div>
+        <div class="svc fade"><span class="n">C</span><h3>Automation</h3><span class="k">Integrations · Workflows</span><p>Connect the tools you already use and take the repetitive steps off your team's plate. <a class="svc-go" href="#contact">Discuss automation &rarr;</a></p></div>
       </div>
     </div>
 </div>
@@ -1826,6 +1828,9 @@ if(!reduce){
   requestAnimationFrame(function(){setTimeout(function(){heroEls.forEach(function(el,i){el.style.transitionDelay=(el.classList.contains('fade')?300+i*120:0)+'ms';el.classList.remove('pre')})},80)});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var sib=[].indexOf.call(e.target.parentNode.children,e.target);if(e.target.classList.contains('fade'))e.target.style.transitionDelay=Math.min(sib,5)*80+'ms';e.target.classList.remove('pre');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
   rev.forEach(function(el){io.observe(el)});
+  /* the Software chips sit at the very bottom of a one-screen section, so the 10% bottom margin above kept them dim; reveal them as soon as they enter the viewport */
+  var chipsEl=document.querySelector('.sx-chips');
+  if(chipsEl){io.unobserve(chipsEl);new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){e.target.style.transitionDelay='0ms';e.target.classList.remove('pre');o.unobserve(e.target)}})},{rootMargin:'0px'}).observe(chipsEl)}
 }
 
 /* ---------- projects ---------- */
@@ -1956,16 +1961,18 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
     if(!dir)return;if(e.target.closest&&e.target.closest('button,a')&&k===' ')return;var y=scrollY;if(!busy&&((dir>0&&y>=lockEnd-2)||(dir<0&&y>lockEnd+2&&y-innerHeight*.6>lockEnd)))return;if(!busy&&dir<0&&y>lockEnd+2){e.preventDefault();glide(lockEnd);return}e.preventDefault();if(busy){pending=dir;return}if(inFree(scrollY,dir)){window.scrollBy({top:dir*innerHeight*.6,behavior:'smooth'});return}var t=next(dir);if(t)glide(t.y)});
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||!on())return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;
     var i=lockSecs.indexOf(el);if(i<0||i>=LOCKN)return;e.preventDefault();build();var y=i===0?0:(el.offsetHeight<=innerHeight*1.08?el.offsetTop+el.offsetHeight/2-innerHeight/2:el.offsetTop);glide(Math.max(0,y));history.replaceState(null,'','#'+id)});
-  /* gentle magnet for Software only (not a lock): if scrolling stops close to it, ease it fully into view. Any wheel, key or touch cancels it. */
-  var swEl=document.getElementById('software'),snapT=0,snapRaf=0;
+  /* gentle magnet for Work (Recent projects) and Software (not a lock): if scrolling stops close to one, ease it fully into view. Any wheel, key or touch cancels it. */
+  var swEls=['work','software'].map(function(id){return document.getElementById(id)}).filter(Boolean),snapT=0,snapRaf=0;
   function snapTo(ty){cancelAnimationFrame(snapRaf);var y0=scrollY,d=ty-y0,t0=performance.now(),D=reduce?0:320;
     if(!D){window.scrollTo({top:ty,behavior:'instant'});return}
     (function step(now){var f=Math.max(0,Math.min(1,(now-t0)/D));window.scrollTo({top:y0+d*(1-Math.pow(1-f,3)),behavior:'instant'});if(f<1)snapRaf=requestAnimationFrame(step)})(t0)}
   ['wheel','keydown','touchstart','mousedown'].forEach(function(ev){addEventListener(ev,function(){cancelAnimationFrame(snapRaf)},{passive:true})});
-  addEventListener('scroll',function(){clearTimeout(snapT);if(!swEl||!on())return;snapT=setTimeout(function(){
-    if(busy||blocked())return;var y=scrollY,vh=innerHeight,h=swEl.offsetHeight;if(h>vh*1.08||y<=lockEnd+2)return;
-    var ty=Math.min(document.documentElement.scrollHeight-vh,Math.max(0,swEl.offsetTop+h/2-vh/2)),dist=Math.abs(y-ty);
-    if(dist>2&&dist<vh*.3)snapTo(ty)},180)},{passive:true});
+  addEventListener('scroll',function(){clearTimeout(snapT);if(!swEls.length||!on())return;snapT=setTimeout(function(){
+    if(busy||blocked())return;var y=scrollY,vh=innerHeight;if(y<=lockEnd+2)return;
+    var best=-1,bd=vh*.3;swEls.forEach(function(el){var h=el.offsetHeight;if(h>vh*1.08)return;
+      var ty=Math.min(document.documentElement.scrollHeight-vh,Math.max(0,el.offsetTop+h/2-vh/2)),dist=Math.abs(y-ty);
+      if(dist>2&&dist<bd){bd=dist;best=ty}});
+    if(best>=0)snapTo(best)},180)},{passive:true});
 })();
 
 /* ---------- 3D scene ---------- */
@@ -2439,7 +2446,9 @@ function frame(){
     qT.copy(qH).slerp(qS,mF);waveG.quaternion.copy(qT);
     var CY=6.4,cT=t%CY,ob;
     if(reduce)ob=0;else if(cT<2.6)ob=0;else if(cT<4)ob=ease((cT-2.6)/1.4);else if(cT<4.6)ob=1;else ob=1-ease(Math.min(1,(cT-4.6)/1.6));
-    var cin=reduce?1:ease(Math.min(1,Math.max(0,(t-.2)/1.8)));ob=Math.max(ob,1-cin);
+    var cin=reduce?1:ease(Math.min(1,Math.max(0,(t-.2)/1.8)));ob=Math.max(ob,(1-cin)*.45);
+    /* intro: cubes fade in as they gather, instead of popping in widely scattered */
+    if(cin<1){if(!omat.transparent){omat.transparent=true;omat.needsUpdate=true}omat.opacity=Math.min(1,cin*2.2)}else if(omat.transparent){omat.transparent=false;omat.opacity=1;omat.needsUpdate=true}
     var oS=ob*(1-mF);
     for(var wi=0;wi<cwInfo.length;wi++){var w=cwInfo[wi],fs=FR[wi];
       cwA.copy(w.p).multiplyScalar(1.02+oS*.6);cwA.x+=(hs(w.r,5)-.5)*oS*.35;cwA.y+=(hs(w.r,6)-.5)*oS*.35;cwA.z+=(hs(w.r,7)-.5)*oS*.35;
@@ -2448,7 +2457,7 @@ function frame(){
       cwP.copy(cwA).lerp(fs.p,st);cwP.z+=Math.sin(st*Math.PI)*(hs(w.r,8)-.3)*1.4;
       cwQ.copy(cwLq).slerp(cwI,st);
       if(outF>0){cwB.copy(cwP).normalize();cwP.addScaledVector(cwB,outF*2.2);cwP.z+=(hs(w.r,9)-.5)*outF*2;cwE.set(outF*(hs(w.r,1)-.5)*4,outF*(hs(w.r,2)-.5)*4,0);cwLq.setFromEuler(cwE);cwQ.multiply(cwLq)}
-      var s0=(.97-Math.min(ob,1)*.2)*(.3+.7*cin),s=(s0+(fs.s-s0)*st)*(1-outF)*(1-ease(Math.max(0,Math.min(1,(mF-.55)/.4))));cwSc.set(s,s,s);cwM.compose(cwP,cwQ,cwSc);cwMesh.setMatrixAt(wi,cwM)}
+      var s0=(.97-Math.min(ob,1)*.2)*(.55+.45*cin),s=(s0+(fs.s-s0)*st)*(1-outF)*(1-ease(Math.max(0,Math.min(1,(mF-.55)/.4))));cwSc.set(s,s,s);cwM.compose(cwP,cwQ,cwSc);cwMesh.setMatrixAt(wi,cwM)}
     cwMesh.instanceMatrix.needsUpdate=true;
     /* code inside the window, typed in; hovering a service swaps the snippet */
     cA=Math.max(0,Math.min(1,(mF-.75)/.25))*(1-outF);codeMat.opacity=0;codePl.visible=false;
