@@ -23,11 +23,13 @@ npm start            # serves ./public at http://localhost:3000
 cd public && python3 -m http.server 3000
 ```
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers)
+
+Git is connected to `elsomlabs/elsomlabs` on `main`. `wrangler.jsonc` publishes `public/`.
 
 - Build command: none
-- Build output directory: `public`
-- Production branch: `main`
+- Deploy command: `npx wrangler deploy --assets ./public/`
+- Root directory: `/`
 
 Only `public/` is published. `reference/`, docs and rules are never served.
 
