@@ -213,6 +213,8 @@ form{margin-top:36px;display:flex;flex-direction:column;gap:16px;padding:24px;bo
 .field{display:flex;flex-direction:column;gap:8px}
 .field label,.lbl{font:500 13px/1 var(--sans);color:var(--ink-muted)}
 .input{height:46px;padding:0 14px;border-radius:12px;border:1px solid var(--line-control);background:rgba(20,20,28,.8);color:var(--ink);font:400 15px/1 var(--sans);width:100%;transition:border-color .2s,box-shadow .2s}
+select.input{cursor:pointer}
+select.input option{background:var(--bg-1);color:var(--ink)}
 textarea.input{height:auto;min-height:104px;padding:12px 14px;line-height:1.5;resize:vertical}
 .input::placeholder{color:var(--ink-subtle)}
 .input:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 1px var(--signal),0 0 24px rgba(212,85,14,.45)}
@@ -535,8 +537,26 @@ html{background:#060507}
 .plan li svg{color:var(--signal-text);flex:none}
 .plan .pn{margin:8px 0 18px 26px;font-size:13px;line-height:1.45;color:var(--ink-muted)}
 .plan .btn{margin-top:auto;justify-content:center}
-#pricing .lead{max-width:560px}
-@media (max-width:860px){.plans{grid-template-columns:1fr}.plan .pb{min-height:0}}
+#pricing{padding-block:40px 32px}
+#pricing .h-lg{font-size:clamp(28px,3.2vw,44px);margin-top:12px}
+#pricing .lead{max-width:560px;margin-top:12px;font-size:16px}
+#pricing .plans{margin-top:20px;gap:12px}
+#pricing .plan{padding:18px 20px;border-radius:16px}
+#pricing .plan h3{font-size:18px}
+#pricing .plan .pb{margin-top:4px;font-size:13px;line-height:1.4;min-height:0}
+#pricing .plan .pp{margin-top:12px}
+#pricing .plan .pp b{font-size:32px}
+#pricing .plan .pp-duo{margin-top:12px;gap:6px}
+#pricing .plan .pp-duo .row{gap:2px}
+#pricing .plan .pp-duo b{font-size:22px}
+#pricing .plan .pp-duo .row:first-child b,#pricing .plan .pp-duo .row:only-child b{font-size:18px}
+#pricing .plan ul{margin:12px 0 14px;gap:6px;padding-top:12px}
+#pricing .plan li{font-size:13px;line-height:1.35;gap:8px;align-items:flex-start}
+#pricing .plan li svg{width:14px;height:14px;margin-top:1px}
+#pricing .plan .pn{margin:4px 0 12px 22px;font-size:12px}
+#pricing .plan .btn{height:38px;font-size:13px}
+#pricing .plan .badge{top:-10px;padding:4px 9px;font-size:10px}
+@media (max-width:860px){.plans{grid-template-columns:1fr}.plan .pb{min-height:0}#pricing{padding-block:56px 48px}}
 
 /* ---------- faq: heading column left, accordion panel right ---------- */
 #faq{padding-block:96px 112px}
@@ -628,13 +648,17 @@ html{background:#060507}
 .sx-vis{position:relative;max-width:100%;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(90% 80% at 30% 15%,#18181f,#0a0a0e 70%);box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
 .sx-vis canvas,.sx-bg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 /* A, web design: visual first, numbered list */
-.sx-a .sx-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center;width:100%}
-.sx-a .sx-vis{aspect-ratio:5/4}
-.sx-num{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
-.sx-num li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);min-width:0}
-.sx-n{font:500 11.5px/1.6 var(--mono);color:var(--signal-text);flex:none}
-.sx-num b{display:block;font:600 14.5px/1.3 var(--sans)}
-.sx-num div span{display:block;margin-top:3px;font-size:13px;line-height:1.45;color:var(--ink-muted)}
+#webdesign{padding-block:48px 36px}
+.sx-a .sx-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:clamp(28px,4vw,64px);row-gap:36px;align-items:start;width:100%}
+.sx-a .sx-vis{aspect-ratio:4/3;max-height:min(52vh,420px)}
+.sx-a .h-lg{font-size:clamp(28px,3.2vw,44px);margin-top:10px}
+.sx-a .lead{margin-top:10px;font-size:15px}
+.sx-a .sx-cta{margin-top:16px;height:38px;font-size:13px}
+.sx-num{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+.sx-num li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);min-width:0}
+.sx-n{font:500 11px/1.5 var(--mono);color:var(--signal-text);flex:none}
+.sx-num b{display:block;font:600 13.5px/1.25 var(--sans)}
+.sx-num div span{display:block;margin-top:2px;font-size:12px;line-height:1.35;color:var(--ink-muted)}
 /* B, software: centred header, wide product shot, chip row */
 .sx-col{display:flex;flex-direction:column;align-items:center;width:100%}
 .sx-head{text-align:center;max-width:1040px;display:flex;flex-direction:column;align-items:center}
@@ -680,6 +704,12 @@ html{background:#060507}
 .sx-list .sx-ic{grid-row:span 2}
 @media (max-width:980px){.sx-a .sx-wrap{grid-template-columns:1fr}.sx-bg{position:relative;inset:auto;height:56vw;-webkit-mask-image:none;mask-image:none;order:2}.sx-c{flex-direction:column}.sx-panel{max-width:none}}
 @media (max-width:520px){.sx-num{grid-template-columns:1fr}}
+.sx-a .wd-metrics{grid-column:1/-1;list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 16px;width:100%}
+.wd-metrics li{display:flex;flex-direction:column;gap:4px;min-width:0}
+.wd-metrics b{font:600 clamp(18px,1.8vw,26px)/1.05 var(--sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.wd-metrics b i{font-style:normal;color:var(--signal-text)}
+.wd-metrics span{font:500 11.5px/1.3 var(--sans);color:var(--ink-muted)}
+@media (max-width:860px){#webdesign{padding-block:56px 40px}.sx-a .sx-wrap{row-gap:12px}.sx-a .sx-vis{max-height:none}.sx-a .wd-metrics{grid-template-columns:repeat(2,minmax(0,1fr));padding-top:8px}}
 
 /* integrations bar along the foot of Process */
 #process{padding-block:96px 196px}
@@ -917,6 +947,7 @@ html{background:#060507}
         <ol class="sx-num fade"><li><span class="sx-n">01</span><div><b>Custom design</b><span>Made for your brand, never a template.</span></div></li><li><span class="sx-n">02</span><div><b>Edit it yourself</b><span>Change pages and posts without calling us.</span></div></li><li><span class="sx-n">03</span><div><b>Fast and accessible</b><span>Quick on every phone, usable by everyone.</span></div></li><li><span class="sx-n">04</span><div><b>Built to be found</b><span>Clean structure and SEO foundations from day one.</span></div></li><li><span class="sx-n">05</span><div><b>Bookings and payments</b><span>Stripe, Booksy, calendars, wired in properly.</span></div></li><li><span class="sx-n">06</span><div><b>Hosting and care</b><span>Secure, backed up and kept up to date.</span></div></li></ol>
         <a class="btn btn-line sx-cta fade" href="#contact">Discuss a website <span class="arr">&rarr;</span></a>
       </div>
+      <ul class="wd-metrics fade" aria-label="Web design metrics"><li><b><span class="wd-n" data-to="95">0</span><i>+</i></b><span>Lighthouse performance</span></li><li><b><span class="wd-n" data-to="14" data-to2="21">0–0</span> <i>days</i></b><span>Launch time</span></li><li><b><span class="wd-n" data-to="20">0</span><i>+</i></b><span>Sites launched</span></li><li><b><span class="wd-n" data-to="100">0</span><i>%</i></b><span>Built from scratch. No templates.</span></li></ul>
     </div>
   </section>
 
@@ -1758,14 +1789,22 @@ e.preventDefault();try{window.parent.dispatchEvent(new window.parent.WheelEvent(
       <span class="eyebrow fade"><b>09</b> Contact</span>
       <h2 class="h-lg split">Let's build <span class="grad">something good</span></h2>
       <form id="form" novalidate class="fade">
-        <div class="row2">
-          <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" autocomplete="name" placeholder="Your name"><span class="errmsg" id="e-name"></span></div>
-          <div class="field"><label for="f-email">Email</label><input class="input" id="f-email" type="email" autocomplete="email" placeholder="you@company.com"><span class="errmsg" id="e-email"></span></div>
-        </div>
         <div class="field"><span class="lbl" id="l-t">What do you need?</span>
           <div class="opts" role="group" aria-labelledby="l-t">
             <input type="checkbox" id="t1"><label for="t1">Website</label><input type="checkbox" id="t2"><label for="t2">Software</label><input type="checkbox" id="t3"><label for="t3">Automation</label><input type="checkbox" id="t4"><label for="t4">Design system</label>
           </div></div>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" autocomplete="name" placeholder="Your name"><span class="errmsg" id="e-name"></span></div>
+          <div class="field"><label for="f-email">Email</label><input class="input" id="f-email" type="email" autocomplete="email" placeholder="you@company.com"><span class="errmsg" id="e-email"></span></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-phone">Phone (optional)</label><input class="input" id="f-phone" type="tel" autocomplete="tel" placeholder="Mobile or landline"></div>
+          <div class="field"><label for="f-biz">Business name</label><input class="input" id="f-biz" autocomplete="organization" placeholder="Your company"><span class="errmsg" id="e-biz"></span></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-time">Timeline</label><select class="input" id="f-time"><option value="" disabled selected>Select a timeline</option><option>ASAP</option><option>Within a month</option><option>1–3 months</option><option>Flexible / exploring</option></select><span class="errmsg" id="e-time"></span></div>
+          <div class="field"><label for="f-pref">Preferred contact method</label><select class="input" id="f-pref"><option value="" disabled selected>Select a method</option><option>Email</option><option>Phone</option><option>Either</option></select><span class="errmsg" id="e-pref"></span></div>
+        </div>
         <div class="field"><label for="f-msg">Project details</label><textarea class="input" id="f-msg" placeholder="What are you building, and when do you need it?"></textarea><span class="errmsg" id="e-msg"></span></div>
         <button class="btn btn-signal" type="submit" style="justify-content:center;height:48px">Send enquiry <span class="arr">&rarr;</span></button>
         <div class="sent" id="sent" aria-live="polite">
@@ -1828,6 +1867,18 @@ if(!reduce){
   var chipsEl=document.querySelector('.sx-chips');
   if(chipsEl){io.unobserve(chipsEl);new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){e.target.style.transitionDelay='0ms';e.target.classList.remove('pre');o.unobserve(e.target)}})},{rootMargin:'0px'}).observe(chipsEl)}
 }
+/* web design metrics: count up when the row enters view */
+(function(){var root=document.querySelector('.wd-metrics');if(!root)return;
+  var nums=[].slice.call(root.querySelectorAll('.wd-n'));
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function run(){var t0=performance.now(),D=reduce?0:1100;
+    (function step(now){var u=D?ease(Math.min(1,(now-t0)/D)):1;
+      nums.forEach(function(el){var to=+el.dataset.to,to2=el.dataset.to2;
+        el.textContent=to2!=null?Math.round(to*u)+'\u2013'+Math.round(+to2*u):String(Math.round(to*u))});
+      if(u<1)requestAnimationFrame(step)})(t0)}
+  if(!('IntersectionObserver' in window)){run();return}
+  new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){run();o.unobserve(e.target)}})},{threshold:.35}).observe(root);
+})();
 
 /* ---------- projects ---------- */
 var P=[
@@ -1878,8 +1929,8 @@ document.addEventListener('pointerover',function(e){var inTop=!!e.target.closest
 /* form */
 function err(id,m){document.getElementById('f-'+id).classList.toggle('err',!!m);document.getElementById('e-'+id).textContent=m||'';return !m}
 document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();
-  var n=document.getElementById('f-name').value.trim(),m=document.getElementById('f-email').value.trim(),t=document.getElementById('f-msg').value.trim();
-  var ok=err('name',n?'':'Enter your name.')&err('email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)?'':'Enter an email address like name@company.com.')&err('msg',t.length>=10?'':'Add a sentence or two about the project.');
+  var n=document.getElementById('f-name').value.trim(),m=document.getElementById('f-email').value.trim(),b=document.getElementById('f-biz').value.trim(),ti=document.getElementById('f-time').value,pr=document.getElementById('f-pref').value,t=document.getElementById('f-msg').value.trim();
+  var ok=err('name',n?'':'Enter your name.')&err('email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)?'':'Enter an email address like name@company.com.')&err('biz',b?'':'Enter your business name.')&err('time',ti?'':'Choose a timeline.')&err('pref',pr?'':'Choose a contact method.')&err('msg',t.length>=10?'':'Add a sentence or two about the project.');
   if(ok)document.getElementById('sent').classList.add('show');});
 document.getElementById('again').onclick=function(){document.getElementById('sent').classList.remove('show')};
 
