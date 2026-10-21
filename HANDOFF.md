@@ -22,7 +22,7 @@ This file records everything that was decided while the site was built. Read it 
 | Sections, in order | `#hero`(0) `#services`(1) `#work`(2) `#process`(3) `#webdesign`(4) `#software`(5) `#pricing`(6) `#contact`(7). `#faq` sits between Pricing and Contact; it is in the scroll-lock but not in the 3D scene list |
 | RoutingLab demo | inside `#software`: `<iframe id="rlFrame">` plus `<template id="rlSrc">` holding the whole demo HTML; a small script sets `iframe.srcdoc` |
 | Main JS | `<script src=...three.min.js>` then a big inline script with several IIFEs |
-| Portfolio carousel | IIFE that starts with `var ring=document.getElementById('orbRing')`; project list is `var WORK=[...]` |
+| Portfolio | IIFE after `var WORK=[...]`; uses `#wkStage` / `#wkThumbs` |
 
 ## Features that are easy to break
 
@@ -30,9 +30,9 @@ This file records everything that was decided while the site was built. Read it 
 
 **Wide-screen scaling.** JS sets `--z` and `window.__Z` from `k=min(w/1440,h/880)`, clamped to 2.4, only when width > 1500. CSS applies `zoom:var(--z,1)` to `section > .wrap, .top .wrap, .hud, .scrollcue`. Canvas DPR is multiplied by `__Z`. The contact sphere (`.cball`) is deliberately NOT scaled; scaling it overlaps the form.
 
-**Portfolio carousel (`#work`).** Cards sit in `#orbRing` inside `#orbStage`. In `lay()`: `cw=vw>860?Math.min(vw*.36,h*1.5,720):Math.min(w*.72,h*1.5)`, `ch=cw*10/16`, `sp1=cw*1.0`, `sp2=cw*.62`, `dz=cw*.5`. In `place(f)`: rotateY is `sg*min(a,1)*32 + sg*max(0,min(a-1,1))*10`. Non-centre cards get `.orb-card.dim{filter:brightness(.32) saturate(.6)}`. Wheel only rotates it when the pointer is over a card; drag, click-to-centre and click-centre-to-pop-out all work. The pop-out uses a FLIP animation, so keep `.orb-pop[hidden]{display:none!important}`. Starting tile is the Sneaker Reseller entry, found as the first `WORK` entry that has an `embed:` URL (so renaming it is safe; if no entry has `embed:` it starts on the first tile).
+**Portfolio (`#work`).** Featured preview + thumbs (not a 3D carousel). Markup: `#wkStage` (img + optional `#wkLive` iframe), `#wkThumbs` tab buttons, `#wkCap` copy/CTA. Starting project is the first `WORK` entry with an `embed:` URL (Sneaker). Arrow keys / prev-next / thumbs switch projects. `window.__orbM` still exposes `{el,src,vis}` for the Services→Work morph, pointing at `#wkStage`.
 
-`WORK` order: Stunell Wills, Ledgerline, Atlas Ops, Sneaker Reseller, Saltmarsh, Studio Nord. The Sneaker entry has an `embed:` URL. The live iframe (`iframe.orb-live`, 1400px wide, scaled by `k=cw/1400`) is only injected when `window.top===window.self`. Inside any framed preview (for example Claude's artifact viewer) the screenshot `assets/work/sneaker.jpg` shows instead. Its title is still "Sneaker Reseller" because the live site still says "[STORE NAME]"; swap in the real name when known.
+`WORK` order: Stunell Wills, Sneaker Reseller, RoutingLab. Stunell and Sneaker are live sites; RoutingLab is a case-study card linking to `#software` (no real-app embed). The Sneaker entry has an `embed:` URL. The live iframe (`#wkLive`, 1400px wide, scaled by `k=stageWidth/1400`) only loads when `window.top===window.self`. Inside any framed preview the screenshot shows instead. Its title is still "Sneaker Reseller" because the live site still says "[STORE NAME]"; swap in the real name when known.
 
 **RoutingLab demo.** Five screens: RouteMap, Schedule, LiveTech, Banks, Techs. It is scaled to fit with `fit()`/`SC`. The map is generated in JS (`baseMap()`, `regionMap()`). LiveTech has 20 fictional techs with white two-line labels and leader lines; the viewBox is `200 150 1200 750` (`LVB`). The city is named "Chicago". Scrollbars are hidden. A script at the end forwards wheel events to the parent page.
 `reference/routinglab-demo.html` is the same demo as a standalone file. If you change one, change the other.

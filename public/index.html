@@ -522,11 +522,19 @@ html{background:#060507}
 .plan .pp small{font:500 12px/1 var(--mono);color:var(--ink-subtle);text-transform:uppercase;letter-spacing:.06em}
 .plan .pp b{font:600 40px/1 var(--sans);letter-spacing:-.045em}
 .plan .pp span{font-size:13px;color:var(--ink-subtle)}
+.plan .pp-duo{margin-top:20px;display:grid;gap:10px}
+.plan .pp-duo .row{display:flex;flex-direction:column;gap:4px}
+.plan .pp-duo .row > div{display:flex;align-items:baseline;gap:8px}
+.plan .pp-duo small{font:500 12px/1 var(--mono);color:var(--ink-subtle);text-transform:uppercase;letter-spacing:.06em}
+.plan .pp-duo b{font:600 28px/1 var(--sans);letter-spacing:-.03em}
+.plan .pp-duo .row:first-child b{font-size:22px;letter-spacing:-.025em}
+.plan .pp-duo .row:only-child b{font-size:22px;letter-spacing:-.025em}
+.plan .pp-duo span{font-size:13px;color:var(--ink-subtle)}
 .plan ul{list-style:none;padding:0;margin:20px 0 24px;display:grid;gap:10px;border-top:1px solid var(--line);padding-top:18px}
 .plan li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:var(--ink)}
 .plan li svg{color:var(--signal-text);flex:none}
+.plan .pn{margin:8px 0 18px 26px;font-size:13px;line-height:1.45;color:var(--ink-muted)}
 .plan .btn{margin-top:auto;justify-content:center}
-.pnote{margin-top:18px;font:400 12.5px/1.5 var(--mono);color:var(--ink-subtle)}
 #pricing .lead{max-width:560px}
 @media (max-width:860px){.plans{grid-template-columns:1fr}.plan .pb{min-height:0}}
 
@@ -564,48 +572,36 @@ html{background:#060507}
 .sbox .sb-body{padding-top:clamp(28px,3vw,44px)}
 
 /* ---------- portfolio: orbit ---------- */
-#work{display:flex;align-items:center;padding-block:96px 64px}
-#work .orb-wrap{width:100%}
-.orb-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.orb-nav{display:flex;align-items:center;gap:14px}
-.orb-btn{width:46px;height:46px;border-radius:999px;border:1px solid var(--line-2);background:rgba(12,12,18,.5);color:var(--ink);font-size:17px;cursor:pointer;display:grid;place-items:center;transition:background-color .2s,color .2s,border-color .2s}
-.orb-btn:disabled{opacity:.3;cursor:default;pointer-events:none}.orb-btn:hover{background:var(--ink);color:var(--ink-inverse);border-color:var(--ink)}
-.orb-btn:focus-visible,.orb-stage:focus-visible,.orb-link:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
-.orb-count{font:500 12px/1 var(--mono);color:var(--ink-subtle);font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
-.orb-stage{position:relative;margin-top:24px;user-select:none;-webkit-user-select:none;height:min(52vh,560px);min-height:300px;perspective:1700px;touch-action:pan-y;cursor:grab;outline:none}
-.orb-stage.drag{cursor:grabbing}.orb-stage.drag .orb-card{transition:filter .7s ease,opacity .7s ease}
-.orb-ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-.orb-card{position:absolute;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0e0e12;backface-visibility:hidden;cursor:pointer;box-shadow:0 40px 80px -40px rgba(0,0,0,.9);transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s ease,opacity .7s ease}
-.orb-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;pointer-events:none;user-select:none}
-.orb-card.dim{filter:brightness(.32) saturate(.6)}
-.orb-live{position:absolute;left:0;top:0;width:1400px;height:875px;border:0;transform-origin:0 0;pointer-events:none;background:#262626}
-.orb-pop-fig .orb-live{pointer-events:auto}
-.orb-floor{position:absolute;left:8%;right:8%;bottom:-6px;height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent)}
-.orb-cap{margin-top:30px;text-align:center;display:flex;flex-direction:column;align-items:center}
+#work{display:flex;align-items:center;padding-block:64px 48px}
+#work .wk-wrap{width:100%;max-width:1180px;margin:0 auto}
+.wk-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+#work .wk-head .h-lg{font-size:clamp(32px,3.6vw,48px);margin-top:12px}
+.wk-nav{display:flex;align-items:center;gap:14px}
+.wk-btn{width:46px;height:46px;border-radius:999px;border:1px solid var(--line-2);background:rgba(12,12,18,.5);color:var(--ink);font-size:17px;cursor:pointer;display:grid;place-items:center;transition:background-color .2s,color .2s,border-color .2s}
+.wk-btn:disabled{opacity:.3;cursor:default;pointer-events:none}.wk-btn:hover{background:var(--ink);color:var(--ink-inverse);border-color:var(--ink)}
+.wk-btn:focus-visible,.wk-thumb:focus-visible,.orb-link:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.wk-count{font:500 12px/1 var(--mono);color:var(--ink-subtle);font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
+.wk-body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(240px,.85fr);gap:clamp(20px,2.4vw,36px);align-items:center;margin-top:22px}
+.wk-visual{min-width:0}
+.wk-stage{position:relative;width:100%;aspect-ratio:16/10;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0e0e12;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.wk-stage img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.wk-live{position:absolute;left:0;top:0;width:1400px;height:875px;border:0;transform-origin:0 0;pointer-events:none;background:#262626}
+.wk-thumbs{display:flex;gap:10px;margin-top:12px}
+.wk-thumb{flex:1 1 0;min-width:0;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0e0e12;cursor:pointer;opacity:.55;transition:opacity .25s,border-color .25s,transform .25s var(--ease)}
+.wk-thumb img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;pointer-events:none}
+.wk-thumb:hover{opacity:.85}.wk-thumb.on{opacity:1;border-color:rgba(255,255,255,.28);transform:translateY(-1px)}
+.wk-cap{text-align:left;display:flex;flex-direction:column;align-items:flex-start;max-width:420px}
 .orb-name{font:600 clamp(24px,2.4vw,32px)/1.1 var(--sans);letter-spacing:-.035em}
 .orb-meta{margin-top:10px;display:flex;gap:12px;align-items:center;font:500 11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-subtle)}
-.orb-meta .lv{display:inline-flex;align-items:center;gap:7px;color:#49d39a}.orb-meta .lv::before{content:"";width:6px;height:6px;border-radius:9px;background:#49d39a;box-shadow:0 0 0 3px rgba(73,211,154,.2)}
-.orb-desc{margin:12px 0 0;color:var(--ink-muted);font-size:15px;max-width:520px}
-.orb-link{margin-top:18px;display:inline-flex;gap:10px;align-items:center;height:44px;padding:0 22px;border-radius:999px;background:var(--signal);color:#fff;font:600 14px/1 var(--sans);text-decoration:none;box-shadow:0 0 0 1px rgba(255,160,100,.35),0 10px 30px -8px rgba(212,85,14,.7);transition:background-color .2s,transform .3s var(--ease),box-shadow .3s}
-.orb-link[hidden]{display:none}.orb-link:hover{background:var(--signal-hover);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,180,130,.5),0 14px 36px -8px rgba(232,100,26,.85)}
-.orb-link span{transition:transform .3s var(--ease)}.orb-link:hover span{transform:translate(2px,-2px)}
-.orb-cap.swap .orb-name,.orb-cap.swap .orb-meta,.orb-cap.swap .orb-desc{animation:orbIn .5s cubic-bezier(.2,.7,.2,1)}
+.orb-meta .lv,.orb-meta .cs{display:inline-flex;align-items:center;gap:7px;color:#49d39a}.orb-meta .lv::before,.orb-meta .cs::before{content:"";width:6px;height:6px;border-radius:9px;background:#49d39a;box-shadow:0 0 0 3px rgba(73,211,154,.2)}
+.orb-meta .cs{color:var(--signal-text)}.orb-meta .cs::before{background:var(--signal-text);box-shadow:0 0 0 3px rgba(232,113,42,.2)}
+.orb-desc{margin:12px 0 0;color:var(--ink-muted);font-size:15px;max-width:420px}
+.orb-link{margin-top:18px}
+.orb-link[hidden]{display:none}
+.wk-cap.swap .orb-name,.wk-cap.swap .orb-meta,.wk-cap.swap .orb-desc{animation:orbIn .45s cubic-bezier(.2,.7,.2,1)}
 @keyframes orbIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (max-width:860px){#work{padding-block:84px}.orb-stage{height:58vw;min-height:240px}}
-.orb-card:not(.dim){cursor:zoom-in}
-.orb-pop[hidden]{display:none!important}
-.orb-pop{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:72px 24px 40px}
-.orb-pop-bg{position:absolute;inset:0;background:rgba(4,4,8,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transition:opacity .45s ease}
-.orb-pop.on .orb-pop-bg{opacity:1}
-.orb-pop-fig{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#0e0e12;box-shadow:0 60px 120px -40px rgba(0,0,0,.95);transform-origin:0 0;will-change:transform}
-.orb-pop-fig img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
-.orb-pop-info{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:560px;opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
-.orb-pop.on .orb-pop-info{opacity:1;transform:none;transition-delay:.25s}
-.orb-pop-info .orb-desc{margin-top:12px}
-.orb-pop-x{position:absolute;top:20px;right:20px;z-index:2;width:46px;height:46px;border-radius:999px;border:1px solid var(--line-2);background:rgba(12,12,18,.6);color:var(--ink);font-size:20px;cursor:pointer;display:grid;place-items:center;opacity:0;transition:opacity .3s ease,background .2s ease,color .2s ease}
-.orb-pop.on .orb-pop-x{opacity:1}.orb-pop-x:hover{background:var(--ink);color:var(--ink-inverse)}
-.orb-pop-x:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){.orb-ring,.orb-card{transition:none}.orb-cap.swap *{animation:none}}
+@media (max-width:860px){#work{padding-block:72px 56px}.wk-body{grid-template-columns:1fr;gap:18px}.wk-cap{max-width:none}.wk-stage{aspect-ratio:16/10}}
+@media (prefers-reduced-motion:reduce){.wk-cap.swap *{animation:none}.wk-thumb{transition:none}}
 
 /* integrations strip under Services: slow continuous logo scroll, grey until hovered */
 .integr{width:100%}
@@ -644,10 +640,12 @@ html{background:#060507}
 .sx-head{text-align:center;max-width:1040px;display:flex;flex-direction:column;align-items:center}
 .sx-head .lead{max-width:560px}
 .sx-wide{width:min(100%,860px);aspect-ratio:820/360;margin-top:30px}
-.sx-wide.sx-app{width:min(100%,820px,calc((100vh - 390px)*16/9));min-width:min(100%,560px);aspect-ratio:16/9;margin-top:24px;background:#16181d}
-#software{padding-block:64px 40px}
+.sx-wide.sx-app{width:min(100%,820px,calc((100vh - 320px)*16/9));min-width:min(100%,560px);aspect-ratio:16/9;margin-top:24px;background:#16181d}
+#software{padding-block:40px 24px}
+#software .sx-head .sx-show{font:600 clamp(28px,3.2vw,44px)/1.05 var(--sans);letter-spacing:-.04em;margin:12px 0 0}
 .sx-split{display:flex;align-items:center;justify-content:center;gap:clamp(24px,2.6vw,40px);width:100%;margin-top:24px}
-.sx-split .sx-app{flex:1 1 0;min-width:0;width:auto;max-width:min(820px,calc((100vh - 390px)*16/9));margin-top:0}
+#software .sx-split{margin-top:12px}
+.sx-split .sx-app{flex:1 1 0;min-width:0;width:auto;max-width:min(820px,calc((100vh - 320px)*16/9));margin-top:0}
 .sx-about{flex:0 0 clamp(280px,25vw,350px);text-align:left}
 .sx-ab-e{margin-bottom:10px;gap:8px}
 .sx-ab-h{font:600 24px/1.1 var(--sans);letter-spacing:-.035em;margin:0}
@@ -660,6 +658,7 @@ html{background:#060507}
 @media (max-width:860px){.sx-split{flex-direction:column;align-items:stretch}.sx-split .sx-app{flex:none;width:100%;max-width:none}.sx-about{flex:none}}
 .sx-app iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 .sx-chips{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+#software .sx-chips{margin-top:12px}
 .sx-chips li{display:flex;align-items:center;gap:9px;height:40px;padding:0 14px 0 4px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.025);font:500 13px/1 var(--sans);color:var(--ink)}
 .sx-chips .sx-ic{width:30px;height:30px;border-radius:999px}.sx-chips .sx-ic svg{width:15px;height:15px}
 .sx-chips .sx-chip-cta{padding:0;border:0;background:none}.sx-chips .sx-chip-cta .btn{height:40px;font-size:13px}
@@ -872,13 +871,18 @@ html{background:#060507}
   </section>
 
   <section id="work" data-label="Work">
-    <div class="wrap orb-wrap">
-      <div class="orb-head">
-        <div><span class="eyebrow"><b>03</b> Selected work</span><h2 class="h-lg">Recent projects</h2></div>
-        <div class="orb-nav"><button class="orb-btn" id="orbPrev" type="button" aria-label="Previous project">&larr;</button><span class="orb-count" id="orbCount">01 / 05</span><button class="orb-btn" id="orbNext" type="button" aria-label="Next project">&rarr;</button></div>
+    <div class="wrap wk-wrap">
+      <div class="wk-head">
+        <div><span class="eyebrow"><b>03</b> Work</span><h2 class="h-lg">Recent projects</h2></div>
+        <div class="wk-nav"><button class="wk-btn" id="orbPrev" type="button" aria-label="Previous project">&larr;</button><span class="wk-count" id="orbCount">01 / 03</span><button class="wk-btn" id="orbNext" type="button" aria-label="Next project">&rarr;</button></div>
       </div>
-      <div class="orb-stage" id="orbStage" tabindex="0" aria-label="Projects, use the arrow keys"><div class="orb-ring" id="orbRing"></div><div class="orb-floor"></div></div>
-      <div class="orb-cap" aria-live="polite"><div class="orb-name" id="orbName"></div><div class="orb-meta" id="orbMeta"></div><p class="orb-desc" id="orbDesc"></p><a class="orb-link" id="orbLink" target="_blank" rel="noopener" hidden>Visit live site <span aria-hidden="true">&#8599;</span></a></div>
+      <div class="wk-body">
+        <div class="wk-visual">
+          <div class="wk-stage" id="wkStage"><img id="wkImg" alt=""><iframe class="wk-live" id="wkLive" hidden tabindex="-1" aria-hidden="true" title="Live project preview"></iframe></div>
+          <div class="wk-thumbs" id="wkThumbs" role="tablist" aria-label="Projects"></div>
+        </div>
+        <div class="wk-cap" id="wkCap" aria-live="polite"><div class="orb-name" id="orbName"></div><div class="orb-meta" id="orbMeta"></div><p class="orb-desc" id="orbDesc"></p><a class="btn btn-line orb-link" id="orbLink" target="_blank" rel="noopener" hidden>Visit live site <span class="arr" aria-hidden="true">&#8599;</span></a></div>
+      </div>
     </div>
   </section>
 
@@ -920,8 +924,7 @@ html{background:#060507}
     <div class="wrap sx-col">
       <div class="sx-head">
         <span class="eyebrow fade"><b>06</b> Software</span>
-        <h2 class="h-lg split">Software shaped around your team</h2>
-        <p class="lead fade">Web apps, client portals and internal tools that replace spreadsheets, copy-and-paste and manual steps.</p>
+        <h2 class="sx-show split">One of the tools we've shipped</h2>
       </div>
       <div class="sx-split"><div class="sx-vis sx-wide sx-app fade"><iframe id="rlFrame" title="RoutingLab product demo with sample data"></iframe></div>
       <aside class="sx-about fade" aria-label="About RoutingLab">
@@ -1724,8 +1727,7 @@ e.preventDefault();try{window.parent.dispatchEvent(new window.parent.WheelEvent(
       <span class="eyebrow fade"><b>07</b> Pricing</span>
       <h2 class="h-lg split">Clear prices, no surprises</h2>
       <p class="lead fade">A fixed quote after a free call. Every price includes design, build and launch.</p>
-      <div class="plans"><div class="plan fade"><h3>Starter site</h3><p class="pb">For new businesses that need a sharp, professional presence.</p><div class="pp"><small>from</small><b>$xxx</b><span>one-off</span></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 5 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Mobile-first design</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Contact form and basic SEO</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Live in 2–3 weeks</li></ul><a class="btn btn-line" href="#contact">Get started <span class="arr">&rarr;</span></a></div><div class="plan fade hot"><span class="badge">Most popular</span><h3>Business site</h3><p class="pb">For growing businesses that want enquiries and bookings.</p><div class="pp"><small>from</small><b>$xxx</b><span>one-off</span></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 12 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Edit it yourself with a CMS</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Booking or enquiry flows</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Analytics and full SEO setup</li></ul><a class="btn btn-primary" href="#contact">Book a call <span class="arr">&rarr;</span></a></div><div class="plan fade"><h3>Software &amp; automation</h3><p class="pb">For apps, portals and the tools that run your business.</p><div class="pp"><small>from</small><b>$xxx</b><span>per project</span></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Web apps and client portals</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Integrations and workflows</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Scoped with a fixed quote</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing support available</li></ul><a class="btn btn-line" href="#contact">Talk it through <span class="arr">&rarr;</span></a></div></div>
-      <p class="pnote fade">Prices exclude VAT. Care plans for hosting, updates and support from $xxx a month.</p>
+      <div class="plans"><div class="plan fade"><h3>Launch</h3><p class="pb">Everything your business needs to establish a stronger online presence.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$1,200</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$149</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Custom-designed website, up to 5 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Looks and works properly on phones, tablets and desktops</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Hosting, SSL certificate, backups and site maintenance included</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Basic on-page SEO so local customers can find you</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 2 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Email support with a reply within 24 hours</li></ul><a class="btn btn-line" href="#contact">Build my website <span class="arr">&rarr;</span></a></div><div class="plan fade hot"><span class="badge">Most popular</span><h3>Scale</h3><p class="pb">For growing businesses that want enquiries and bookings.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$2,500</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$249</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Everything in the Launch package</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 15 pages, plus a blog you can publish to</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Google reviews, social media feeds and online booking connected to your site</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing local SEO, Google Business Profile help and traffic tracking</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 5 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Monthly report on how your site is performing</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Priority email support with a reply within 24 to 48 hours</li></ul><p class="pn">Need more than 15 pages? Larger sites are quoted individually.</p><a class="btn btn-primary" href="#contact">Book a call <span class="arr">&rarr;</span></a></div><div class="plan fade"><h3>Software &amp; Automation</h3><p class="pb">For custom apps, portals and automation that run your business.</p><div class="pp-duo"><div class="row"><small>Project pricing</small><div><b>Custom quote</b><span>based on scope</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Web apps and client portals</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Integrations with Google Workspace and the tools you already use</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Automated workflows that replace manual data entry and follow-ups</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>AI voice agents and process automation</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Quoted after a short discovery call</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing support available</li></ul><a class="btn btn-line" href="#contact">Talk it through <span class="arr">&rarr;</span></a></div></div>
     </div>
   </section>
 
@@ -1779,12 +1781,6 @@ e.preventDefault();try{window.parent.dispatchEvent(new window.parent.WheelEvent(
 
 <div class="peek" id="peek" aria-hidden="true"></div>
 
-<div class="orb-pop" id="orbPop" role="dialog" aria-modal="true" aria-labelledby="popName" hidden>
-  <div class="orb-pop-bg"></div>
-  <button class="orb-pop-x" id="popX" type="button" aria-label="Close">&times;</button>
-  <figure class="orb-pop-fig" id="popFig"><img id="popImg" alt=""></figure>
-  <div class="orb-pop-info"><div class="orb-name" id="popName"></div><div class="orb-meta" id="popMeta"></div><p class="orb-desc" id="popDesc"></p><a class="orb-link" id="popLink" target="_blank" rel="noopener" hidden>Visit live site <span aria-hidden="true">&#8599;</span></a></div>
-</div>
 <dialog id="dlg" aria-labelledby="dT">
   <div class="dlg">
     <button class="x" id="dX" aria-label="Close project">&times;</button>
@@ -1921,8 +1917,8 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
 /* ---------- section lock: one wheel gesture or key press glides exactly one section (desktop only) ---------- */
 (function(){
   var fine=matchMedia('(pointer:fine)');function on(){return fine.matches&&innerWidth>860}
-  /* section lock covers only the first LOCKN sections (Hero and Services); the rest of the page scrolls freely */
-  var LOCKN=2,lockEnd=0;
+  /* section lock covers the first LOCKN sections (Hero, Services, Recent projects); the rest of the page scrolls freely */
+  var LOCKN=3,lockEnd=0;
   var busy=false,lastWheel=0,lastAbs=0,glideStart=0,pending=0,stops=[];
   /* the lock includes #faq, which the 3D scene does not */
   var lockSecs=[].slice.call(document.querySelectorAll('main section'));
@@ -1944,7 +1940,7 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
     else{for(var j=stops.length-1;j>=0;j--)if(stops[j].y<y-6){c=stops[j];break}}
     return c}
   function inFree(y,dir){for(var i=0;i<stops.length;i++){var s=stops[i];if(s.a==null)continue;if(dir>0&&y>=s.a-2&&y<s.b-6)return true;if(dir<0&&y>s.a+6&&y<=s.b+2)return true}return false}
-  function blocked(){var ae=document.activeElement;return document.getElementById('dlg').open||!document.getElementById('orbPop').hidden||(ae&&/INPUT|TEXTAREA|SELECT/.test(ae.tagName))}
+  function blocked(){var ae=document.activeElement;return document.getElementById('dlg').open||(ae&&/INPUT|TEXTAREA|SELECT/.test(ae.tagName))}
   /* a new gesture is a fresh flick after a pause, or a sharp rise in speed during a trackpad's coast; fast repeated flicks chain section to section */
   addEventListener('wheel',function(e){if(!on()||blocked()||e.ctrlKey)return;var now=performance.now(),abs=Math.abs(e.deltaY),dir=e.deltaY>0?1:e.deltaY<0?-1:0;
     var fresh=now-lastWheel>140||(abs>lastAbs*1.7&&abs>18&&now-glideStart>150);lastWheel=now;lastAbs=abs;
@@ -1961,16 +1957,16 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
     if(!dir)return;if(e.target.closest&&e.target.closest('button,a')&&k===' ')return;var y=scrollY;if(!busy&&((dir>0&&y>=lockEnd-2)||(dir<0&&y>lockEnd+2&&y-innerHeight*.6>lockEnd)))return;if(!busy&&dir<0&&y>lockEnd+2){e.preventDefault();glide(lockEnd);return}e.preventDefault();if(busy){pending=dir;return}if(inFree(scrollY,dir)){window.scrollBy({top:dir*innerHeight*.6,behavior:'smooth'});return}var t=next(dir);if(t)glide(t.y)});
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||!on())return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;
     var i=lockSecs.indexOf(el);if(i<0||i>=LOCKN)return;e.preventDefault();build();var y=i===0?0:(el.offsetHeight<=innerHeight*1.08?el.offsetTop+el.offsetHeight/2-innerHeight/2:el.offsetTop);glide(Math.max(0,y));history.replaceState(null,'','#'+id)});
-  /* gentle magnet for Work (Recent projects) and Software (not a lock): if scrolling stops close to one, ease it fully into view. Any wheel, key or touch cancels it. */
-  var swEls=['work','software'].map(function(id){return document.getElementById(id)}).filter(Boolean),snapT=0,snapRaf=0;
+  /* gentle magnet for Software and Pricing (not a lock): Work is inside the hard lock above. Any wheel, key or touch cancels it. */
+  var swEls=['software','pricing'].map(function(id){return document.getElementById(id)}).filter(Boolean),snapT=0,snapRaf=0;
   function snapTo(ty){cancelAnimationFrame(snapRaf);var y0=scrollY,d=ty-y0,t0=performance.now(),D=reduce?0:320;
     if(!D){window.scrollTo({top:ty,behavior:'instant'});return}
     (function step(now){var f=Math.max(0,Math.min(1,(now-t0)/D));window.scrollTo({top:y0+d*(1-Math.pow(1-f,3)),behavior:'instant'});if(f<1)snapRaf=requestAnimationFrame(step)})(t0)}
   ['wheel','keydown','touchstart','mousedown'].forEach(function(ev){addEventListener(ev,function(){cancelAnimationFrame(snapRaf)},{passive:true})});
   addEventListener('scroll',function(){clearTimeout(snapT);if(!swEls.length||!on())return;snapT=setTimeout(function(){
     if(busy||blocked())return;var y=scrollY,vh=innerHeight;if(y<=lockEnd+2)return;
-    var best=-1,bd=vh*.3;swEls.forEach(function(el){var h=el.offsetHeight;if(h>vh*1.08)return;
-      var ty=Math.min(document.documentElement.scrollHeight-vh,Math.max(0,el.offsetTop+h/2-vh/2)),dist=Math.abs(y-ty);
+    var best=-1,bd=vh*.3;swEls.forEach(function(el){var h=el.offsetHeight,
+      ty=Math.min(document.documentElement.scrollHeight-vh,Math.max(0,h<=vh*1.08?el.offsetTop+h/2-vh/2:el.offsetTop)),dist=Math.abs(y-ty);
       if(dist>2&&dist<bd){bd=dist;best=ty}});
     if(best>=0)snapTo(best)},180)},{passive:true});
 })();
@@ -2672,95 +2668,46 @@ var LAND='XyB95FcgK/FCIAP2PSB/4TUgLe4pIFfmISAF8x0ggN4JIFjjAiAG8PcfMOjvH9706x9a4O
 var ok=null;try{ok=CrystalizedBall(el,{preset:'plasma',color:'#ff6800',size:.8,crackle:.3,fill:.5,strands:6,flares:.65,glow:.4,sparks:.6,particleCount:15000,motion:'orbit',particleShape:'square',depth:.6,sway:.5,twinkle:.4,haze:.7,dustSpeed:1,speed:1,intro:true,paused:false,earth:LAND,spin0:.35,spinSpeed:.06,onFail:function(){el.style.display='none';if(window.__showSphere)window.__showSphere()}})}catch(err){console.warn('ball',err)}if(ok&&window.__hideSphere)window.__hideSphere();else el.style.display='none'})();
 </script>
 <script>
-/* ---------- portfolio orbit: edit projects here ---------- */
+/* ---------- portfolio: featured preview + thumbs ---------- */
 var WORK=[
   {name:'Stunell Wills',type:'Website',live:true,img:'assets/work/stunell.jpg',url:'https://leestunell.elsomlabs.com',desc:'A will-writing practice in Hailsham, built to turn visitors into booked consultations.'},
-  {name:'Ledgerline',type:'Web app',live:false,img:'assets/work/ledgerline.jpg',desc:'One place for an operations team to see orders, revenue and payments.'},
-  {name:'Atlas Ops',type:'Automation',live:false,img:'assets/work/atlas.jpg',desc:'New enquiries routed by budget and booked in automatically.'},
   {name:'Sneaker Reseller',type:'Website',live:true,img:'assets/work/sneaker.jpg',url:'https://weathered-sunset-a989.m-a4b.workers.dev/',embed:'https://weathered-sunset-a989.m-a4b.workers.dev/',desc:'A storefront for a sneaker reseller, with weekly drops, an authentication promise and a sell-to-us offer form.'},
-  {name:'Saltmarsh',type:'Website',live:false,img:'assets/work/saltmarsh.jpg',desc:'A coastal hotel site with live room availability and direct booking.'},
-  {name:'Studio Nord',type:'Website',live:false,img:'assets/work/studionord.jpg',desc:'An architecture studio site with project pages the team updates themselves.'}
+  {name:'RoutingLab',type:'Software',caseStudy:true,img:'assets/work/routinglab.jpg',url:'#software',desc:'A dispatch and routing platform for fire protection, shown live in the Software section.'}
 ];
-(function(){var ring=document.getElementById('orbRing'),stage=document.getElementById('orbStage');if(!ring)return;
-  var n=WORK.length,cur=Math.max(0,WORK.map(function(p){return !!p.embed}).indexOf(true)),cw=0,sp1=0,sp2=0,dz=0;
-  /* live embeds only run on the real domain; inside a framed preview the screenshot shows instead */
+(function(){
+  var stage=document.getElementById('wkStage'),img=document.getElementById('wkImg'),live=document.getElementById('wkLive'),thumbs=document.getElementById('wkThumbs'),cap=document.getElementById('wkCap');
+  if(!stage||!thumbs)return;
+  var n=WORK.length,cur=Math.max(0,WORK.map(function(p){return !!p.embed}).indexOf(true));
   var canEmbed=(function(){try{return window.top===window.self}catch(e){return false}})();
-  ring.innerHTML=WORK.map(function(p,i){return '<div class="orb-card" data-i="'+i+'"><img src="'+p.img+'" alt="'+p.name+' preview" draggable="false" loading="lazy">'+(p.embed&&canEmbed?'<iframe class="orb-live" src="'+p.embed+'" loading="lazy" tabindex="-1" aria-hidden="true" title="'+p.name+' live preview"></iframe>':'')+'</div>'}).join('');
-  var cards=[].slice.call(ring.children),cap=document.querySelector('.orb-cap');
-  /* curved rail: the centre tile faces you, two tiles each side turn inward and step back */
-  function place(f){cards.forEach(function(c,i){var d=i-f,a=Math.abs(d),sg=d<0?-1:1,x=sg*(a<=1?a*sp1:sp1+(a-1)*sp2),z=-Math.min(a,3)*dz,r=sg*Math.min(a,1)*32+sg*Math.max(0,Math.min(a-1,1))*10;
-    c.style.transform='translate3d('+x+'px,0,'+z+'px) rotateY('+r+'deg)';c.style.zIndex=10-Math.round(a*2)})}
-  function lay(){var w=stage.clientWidth,h=stage.clientHeight,vw=innerWidth;cw=vw>860?Math.min(vw*.36,h*1.5,720):Math.min(w*.72,h*1.5);var ch=cw*10/16;
-    sp1=cw*1.0;sp2=cw*.62;dz=cw*.5;
-    cards.forEach(function(c){c.style.width=cw+'px';c.style.height=ch+'px';c.style.left=(-cw/2)+'px';c.style.top=(-ch/2)+'px';var fr=c.querySelector('.orb-live');if(fr){var k=cw/1400;fr.style.transform='scale('+k+')';fr.style.height=(ch/k)+'px'}});set(cur,true)}
-  function set(i,quiet){i=Math.max(0,Math.min(n-1,i));var changed=i!==cur;cur=i;place(i);
-    cards.forEach(function(c,j){c.classList.toggle('dim',j!==i)});var p=WORK[i];
+  thumbs.innerHTML=WORK.map(function(p,i){return '<button class="wk-thumb" type="button" role="tab" data-i="'+i+'" aria-label="'+p.name+'" aria-selected="false"><img src="'+p.img+'" alt="" loading="lazy" draggable="false"></button>'}).join('');
+  var tabs=[].slice.call(thumbs.children);
+  function badge(p){return p.live?'<span class="lv">Live</span>':(p.caseStudy?'<span class="cs">Case study</span>':'<span>Example</span>')}
+  function wireLink(l,p){l.hidden=!p.url;if(!p.url)return;l.href=p.url;var internal=p.url.charAt(0)==='#';
+    if(internal){l.removeAttribute('target');l.removeAttribute('rel');l.innerHTML='See case study <span class="arr" aria-hidden="true">&rarr;</span>'}
+    else{l.setAttribute('target','_blank');l.setAttribute('rel','noopener');l.innerHTML='Visit live site <span class="arr" aria-hidden="true">&#8599;</span>'}}
+  function fitLive(){if(live.hidden)return;var r=stage.getBoundingClientRect(),k=r.width/1400;live.style.transform='scale('+k+')';live.style.height=(r.height/k)+'px'}
+  function set(i,quiet){i=Math.max(0,Math.min(n-1,i));var changed=i!==cur;cur=i;var p=WORK[i];
+    img.src=p.img;img.alt=p.name+' preview';
+    if(p.embed&&canEmbed){live.hidden=false;live.setAttribute('aria-hidden','false');if(live.getAttribute('src')!==p.embed)live.src=p.embed;live.title=p.name+' live preview';fitLive()}
+    else{live.hidden=true;live.setAttribute('aria-hidden','true');live.removeAttribute('src')}
+    tabs.forEach(function(t,j){t.classList.toggle('on',j===i);t.setAttribute('aria-selected',j===i?'true':'false')});
     document.getElementById('orbName').textContent=p.name;
-    document.getElementById('orbMeta').innerHTML=(p.live?'<span class="lv">Live</span>':'<span>Concept</span>')+'<span>&middot;</span><span>'+p.type+'</span>';
-    document.getElementById('orbDesc').textContent=p.desc;var l=document.getElementById('orbLink');l.hidden=!p.url;if(p.url)l.href=p.url;
+    document.getElementById('orbMeta').innerHTML=badge(p)+'<span>&middot;</span><span>'+p.type+'</span>';
+    document.getElementById('orbDesc').textContent=p.desc;wireLink(document.getElementById('orbLink'),p);
     document.getElementById('orbCount').textContent=('0'+(i+1)).slice(-2)+' / '+('0'+n).slice(-2);
     document.getElementById('orbPrev').disabled=i===0;document.getElementById('orbNext').disabled=i===n-1;
     if(changed&&!quiet){cap.classList.remove('swap');void cap.offsetWidth;cap.classList.add('swap')}}
-  document.getElementById('orbPrev').onclick=function(){set(cur-1)};document.getElementById('orbNext').onclick=function(){set(cur+1)};
-  cards.forEach(function(c){c.addEventListener('click',function(){var j=+c.dataset.i;if(j===cur)pop(j);else set(j)})});
-  /* pop-out: the front card grows from its place on the ring into a large view */
-  var pv=document.getElementById('orbPop'),fig=document.getElementById('popFig'),pimg=document.getElementById('popImg'),pi=-1,closing=false,lastFocus=null;
-  var red=matchMedia('(prefers-reduced-motion: reduce)');
-  /* the pop-out shows the whole screenshot at its own shape; the tile shows a 16:10 crop of it */
-  var ar=1.6;function target(){var vw=innerWidth,vh=innerHeight,w=Math.min(vw-48,1240),h=w/ar,mh=vh-72-40-180;if(h>mh){h=mh;w=h*ar}return [w,h]}
-  function crop(w,h){return ar>=1.6?{x:(w-h*1.6)/2,y:0,cw:h*1.6,ch:h}:{x:0,y:0,cw:w,ch:w/1.6}}
-  function flip(from,to){var c=crop(to.width,to.height),k=from.width/c.cw;return {t:'translate('+(from.left-to.left-k*c.x)+'px,'+(from.top-to.top-k*c.y)+'px) scale('+k+')',
-    c:'inset('+c.y+'px '+(to.width-c.x-c.cw)+'px '+(to.height-c.y-c.ch)+'px '+c.x+'px round '+(14/k)+'px)'}}
-  function go(f,t,ease){fig.style.transition=t?'transform '+t+'s '+ease+',clip-path '+t+'s '+ease:'none';fig.style.transform=f?f.t:'none';fig.style.clipPath=f?f.c:'inset(0 0 0 0 round 16px)'}
-  function pop(j){if(!pv.hidden)return;pi=j;var p=WORK[j];lastFocus=document.activeElement;
-    pimg.src=p.img;pimg.alt=p.name+' preview';var ci=cards[j].querySelector('img');ar=ci&&ci.naturalWidth?ci.naturalWidth/ci.naturalHeight:1.6;
-    document.getElementById('popName').textContent=p.name;
-    document.getElementById('popMeta').innerHTML=(p.live?'<span class="lv">Live</span>':'<span>Concept</span>')+'<span>&middot;</span><span>'+p.type+'</span>';
-    document.getElementById('popDesc').textContent=p.desc;var l=document.getElementById('popLink');l.hidden=!p.url;if(p.url)l.href=p.url;
-    var sz=target();fig.style.width=sz[0]+'px';fig.style.height=sz[1]+'px';
-    var old=fig.querySelector('.orb-live');if(old)old.remove();
-    if(p.embed&&canEmbed){var fr=document.createElement('iframe');fr.className='orb-live';fr.src=p.embed;fr.title=p.name+' live site';var k=sz[0]/1400;fr.style.transform='scale('+k+')';fr.style.height=(sz[1]/k)+'px';fig.appendChild(fr)}
-    pv.hidden=false;
-    var src=cards[j].getBoundingClientRect(),dst=fig.getBoundingClientRect();
-    cards[j].style.visibility='hidden';
-    if(!red.matches){go(flip(src,dst),0);void fig.offsetWidth;go(null,.65,'cubic-bezier(.2,.75,.15,1)')}else go(null,0)
-    requestAnimationFrame(function(){pv.classList.add('on')});document.getElementById('popX').focus({preventScroll:true})}
-  function unpop(){if(pv.hidden||closing)return;closing=true;pv.classList.remove('on');var c=cards[pi];
-    function end(){pv.hidden=true;go(null,0);var lf=fig.querySelector('.orb-live');if(lf)lf.remove();c.style.visibility='';closing=false;if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true})}
-    if(red.matches){end();return}
-    c.style.visibility='';var src=c.getBoundingClientRect();c.style.visibility='hidden';
-    go(flip(src,fig.getBoundingClientRect()),.5,'cubic-bezier(.4,0,.2,1)');
-    setTimeout(end,500)}
-  document.getElementById('popX').onclick=unpop;pv.querySelector('.orb-pop-bg').onclick=unpop;
-  pv.addEventListener('click',function(e){if(e.target===pv)unpop()});
-  pv.addEventListener('wheel',function(e){e.preventDefault()},{passive:false});
-  addEventListener('keydown',function(e){if(pv.hidden)return;if(e.key==='Escape'){e.preventDefault();unpop();return}
-    if(e.key==='Tab'){var f=[document.getElementById('popX')];var l=document.getElementById('popLink');if(!l.hidden)f.push(l);var i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();return}
-    if(/^(Arrow|Page|Home|End| )/.test(e.key))e.preventDefault()});
-  addEventListener('resize',function(){if(pv.hidden)return;var sz=target();fig.style.width=sz[0]+'px';fig.style.height=sz[1]+'px'});
-  stage.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();pop(cur);return}if(e.key==='ArrowRight'){e.preventDefault();e.stopPropagation();set(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();e.stopPropagation();set(cur-1)}});
-  /* scroll over a tile turns the ring one card per gesture; past the first/last card the page scrolls on as normal */
-  var sec=document.getElementById('work'),lastTurn=0,lastEv=0;
-  stage.addEventListener('wheel',function(e){if(e.ctrlKey||!pv.hidden||!cards.some(function(c){var r=c.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom}))return;
-    var h=Math.abs(e.deltaX)>Math.abs(e.deltaY),d=h?e.deltaX:e.deltaY;if(Math.abs(d)<2)return;var dir=d>0?1:-1,t=cur+dir;
-    var g=stage.getBoundingClientRect();if(!h&&(g.top<-40||g.bottom>innerHeight+40))return;
-    if(t<0||t>n-1)return;e.preventDefault();var now=performance.now(),fresh=now-lastEv>160;lastEv=now;
-    if((fresh||now-lastTurn>700)&&now-lastTurn>350){lastTurn=now;set(t)}},{passive:false});
-  /* drag: the ring follows the pointer, then snaps to the nearest card; a press that barely moves is a click */
-  var sx=null,dx=0,moved=false;
-  stage.addEventListener('pointerdown',function(e){if(e.button)return;sx=e.clientX;dx=0;moved=false});
-  addEventListener('pointermove',function(e){if(sx===null)return;dx=e.clientX-sx;if(!moved&&Math.abs(dx)>6){moved=true;stage.classList.add('drag');}
-    if(moved){var f=Math.max(-.6,Math.min(n-1+.6,cur-dx/(cw*.9)));place(f)}});
-  function up(){if(sx===null)return;sx=null;stage.classList.remove('drag');if(moved){var k=dx/(cw*.9);set(Math.round(cur-k-(Math.abs(k)>.12&&Math.abs(k)<.5?Math.sign(k)*.5:0)))}}
-  addEventListener('pointerup',up);addEventListener('pointercancel',up);
-  stage.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false}},true);
-  if(window.ResizeObserver)new ResizeObserver(lay).observe(stage);addEventListener('resize',lay);lay();set(cur,true);
-  /* hooks for the Services window, which flies in and becomes the centre tile */
-  var mk=-1;window.__orbM={el:function(){return cards[cur]},src:function(){return WORK[cur].img},
-    vis:function(k){k=k>=1?1:k;if(k===mk)return;mk=k;var full=k>=1;cards.forEach(function(c,i){if(i===cur)c.style.visibility=full?'':'hidden';else c.style.visibility='';c.style.opacity=i===cur?'':(k<.5?0:(k-.5)*2).toFixed(3)});
-      cap.style.opacity=full?'':(k<.6?0:(k-.6)/.4).toFixed(3)}};
-  /* always arrive on the middle project */
-  var mid=cur;if(window.IntersectionObserver)new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&pv.hidden&&cur!==mid)set(mid,true)})}).observe(sec)})();
+  document.getElementById('orbPrev').onclick=function(){set(cur-1)};
+  document.getElementById('orbNext').onclick=function(){set(cur+1)};
+  tabs.forEach(function(t){t.addEventListener('click',function(){set(+t.dataset.i)})});
+  addEventListener('keydown',function(e){if(!document.getElementById('work').contains(document.activeElement)&&document.activeElement!==document.body)return;
+    if(e.key==='ArrowRight'){e.preventDefault();set(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();set(cur-1)}});
+  if(window.ResizeObserver)new ResizeObserver(fitLive).observe(stage);addEventListener('resize',fitLive);
+  set(cur,true);
+  window.__orbM={el:function(){return stage},src:function(){return WORK[cur].img},vis:function(){}};
+  var mid=cur,sec=document.getElementById('work');
+  if(window.IntersectionObserver)new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&cur!==mid)set(mid,true)})}).observe(sec);
+})();
 </script>
 <script>
 /* Design tile: a scan line sweeps a dot grid and leaves a page layout behind it */
