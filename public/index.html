@@ -54,6 +54,7 @@ p{margin:0}
 /* HUD */
 .top{position:fixed;z-index:20;top:0;left:0;right:0;padding-top:env(safe-area-inset-top,0px)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.top-end{display:flex;align-items:center;gap:14px;margin-left:auto}
 .brand{display:flex;align-items:center;gap:10px;font:600 17px/1 var(--sans);letter-spacing:-.03em;text-decoration:none}
 .brand-mark{width:18px;height:18px;position:relative}
 .brand-mark i{position:absolute;left:0;height:4px;border-radius:2px;background:var(--ink);transition:width .4s var(--ease)}
@@ -61,7 +62,7 @@ p{margin:0}
 .brand:hover .brand-mark i{width:18px!important}
 .wordmark{font-family:"Open Sans","Segoe UI",system-ui,sans-serif;font-weight:650;font-size:27px;line-height:1;letter-spacing:-.035em;color:#fff;font-variation-settings:"wdth" 100}
 .wordmark b{font-weight:650;color:#e8641a}
-.top nav{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(20,20,28,.55);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.top nav{display:flex;gap:4px;padding:4px}
 .top nav a{padding:8px 14px;border-radius:999px;font:500 13px/1 var(--sans);color:var(--ink-muted);text-decoration:none;transition:color .2s,background-color .2s}
 .top nav a:hover{color:var(--ink)}
 .top nav a.on{background:var(--ink);color:var(--ink-inverse)}
@@ -95,11 +96,13 @@ section > .wrap{width:100%}
 @media (pointer:coarse){.hero-hint{display:none}}
 .eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-subtle);display:flex;align-items:center;gap:10px}
 .eyebrow b{color:var(--signal-text);font-weight:500}
+#hero .eyebrow .brand{text-transform:none}
 .h-xl{font:600 clamp(44px,5.7vw,86px)/.95 var(--sans);letter-spacing:-.055em;margin-top:24px}
 .h-lg{font:600 clamp(40px,5.6vw,76px)/.96 var(--sans);letter-spacing:-.05em;margin-top:20px}
 #services{padding-block:104px 136px}
 .lead{margin-top:28px;font-size:clamp(17px,1.4vw,19px);color:var(--ink-muted);max-width:480px}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+#hero .eyebrow{margin-top:28px}
 .grad{display:inline-block;padding-bottom:.16em;margin-bottom:-.16em;background:linear-gradient(100deg,var(--violet),var(--signal-text));-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* split text */
@@ -540,53 +543,35 @@ html{background:#060507}
 #pricing{padding-block:40px 32px}
 #pricing .h-lg{font-size:clamp(28px,3.2vw,44px);margin-top:12px}
 #pricing .lead{max-width:560px;margin-top:12px;font-size:16px}
-#pricing .plans{margin-top:20px;gap:12px}
-#pricing .plan{padding:18px 20px;border-radius:16px}
-#pricing .plan h3{font-size:18px}
-#pricing .plan .pb{margin-top:4px;font-size:13px;line-height:1.4;min-height:0}
-#pricing .plan .pp{margin-top:12px}
-#pricing .plan .pp b{font-size:32px}
-#pricing .plan .pp-duo{margin-top:12px;gap:6px}
-#pricing .plan .pp-duo .row{gap:2px}
-#pricing .plan .pp-duo b{font-size:22px}
-#pricing .plan .pp-duo .row:first-child b,#pricing .plan .pp-duo .row:only-child b{font-size:18px}
-#pricing .plan ul{margin:12px 0 14px;gap:6px;padding-top:12px}
-#pricing .plan li{font-size:13px;line-height:1.35;gap:8px;align-items:flex-start}
-#pricing .plan li svg{width:14px;height:14px;margin-top:1px}
-#pricing .plan .pn{margin:4px 0 12px 22px;font-size:12px}
-#pricing .plan .btn{height:38px;font-size:13px}
-#pricing .plan .badge{top:-10px;padding:4px 9px;font-size:10px}
+#pricing .plans{margin-top:22px;gap:14px}
+#pricing .plan{padding:24px 24px 22px;border-radius:18px}
+#pricing .plan h3{font-size:19px}
+#pricing .plan .pb{margin-top:8px;font-size:13.5px;line-height:1.45;min-height:0}
+#pricing .plan .pp{margin-top:16px}
+#pricing .plan .pp b{font-size:34px}
+#pricing .plan .pp-duo{margin-top:16px;gap:8px}
+#pricing .plan .pp-duo .row{gap:3px}
+#pricing .plan .pp-duo b{font-size:24px}
+#pricing .plan .pp-duo .row:first-child b,#pricing .plan .pp-duo .row:only-child b{font-size:20px}
+#pricing .plan ul{margin:16px 0 18px;gap:9px;padding-top:16px}
+#pricing .plan li{font-size:13.5px;line-height:1.4;gap:10px;align-items:flex-start}
+#pricing .plan li svg{width:15px;height:15px;margin-top:2px}
+#pricing .plan .pn{margin:6px 0 16px 25px;font-size:12.5px}
+#pricing .plan .btn{height:40px;font-size:13.5px}
+#pricing .plan .badge{top:-11px;padding:5px 10px;font-size:11px}
 @media (max-width:860px){.plans{grid-template-columns:1fr}.plan .pb{min-height:0}#pricing{padding-block:56px 48px}}
 
-/* ---------- faq: heading column left, accordion panel right ---------- */
-#faq{padding-block:96px 112px}
-.faq-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:clamp(32px,5vw,88px);align-items:start}
-.faq-head{min-width:0}
-.faq-head .lead{max-width:420px}
-.faq-head .btn{margin-top:32px}
-.faq-list{margin:0;padding:0;list-style:none;min-width:0;border:1px solid var(--line);border-radius:18px;background:rgba(12,12,18,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:hidden}
-.faq-item+.faq-item{border-top:1px solid var(--line)}
-.faq-item h3{margin:0;font:inherit}
-.faq-q{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;cursor:pointer;font:600 17px/1.35 var(--sans);letter-spacing:-.02em;color:var(--ink);transition:background-color .3s}
-.faq-q:hover{background:rgba(255,255,255,.03)}
-.faq-q:focus-visible{outline:2px solid var(--focus);outline-offset:-2px;border-radius:6px}
-.faq-ic{position:relative;flex:none;width:28px;height:28px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-muted);transition:background-color .3s,border-color .3s,color .3s}
-.faq-ic::before,.faq-ic::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;border-radius:1px;background:currentColor;transform:translate(-50%,-50%)}
-.faq-ic::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .4s var(--ease)}
-.faq-item.open .faq-ic{background:var(--signal);border-color:var(--signal);color:#fff}
-.faq-item.open .faq-ic::after{transform:translate(-50%,-50%) rotate(0)}
-.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
-.faq-a>div{min-height:0;min-width:0;overflow:hidden;visibility:hidden;transition:visibility 0s .5s}
-.faq-a p{padding:0 24px 22px;max-width:62ch;font-size:15px;line-height:1.6;color:var(--ink-muted)}
-.faq-item.open .faq-a{grid-template-rows:1fr}
-.faq-item.open .faq-a>div{visibility:visible;transition-delay:0s}
-@media (max-width:980px){.faq-grid{grid-template-columns:1fr}}
-@media (max-width:520px){.faq-q{padding:18px;font-size:16px}.faq-a p{padding:0 18px 20px}}
-@media (prefers-reduced-motion:reduce){.faq-a,.faq-a>div,.faq-ic::after{transition:none}}
-
 #contact{position:relative}
-.cball{position:absolute;z-index:2;top:50%;right:max(0px,calc((100vw - 1400px)/2));width:min(50vw,680px);height:min(86vh,680px);transform:translateY(-50%);pointer-events:none}
-@media (max-width:860px){#contact{flex-direction:column}#contact>.wrap{order:1}.cball{order:2;position:relative;top:auto;right:auto;transform:none;width:min(100%,520px);height:min(92vw,520px);margin:24px auto 0;flex:none}}
+.c-side{position:absolute;z-index:4;top:calc(50% + 96px);right:max(0px,calc((100vw - 1400px)/2 - 120px));width:min(50vw,680px);height:min(86vh,680px);transform:translateY(-50%);overflow:visible;pointer-events:none}
+.cball{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.c-audit{position:absolute;z-index:5;top:608.39px;right:696px;bottom:314.61px;left:-98px;width:278px;height:220px;overflow:hidden;pointer-events:auto;box-sizing:border-box}
+.c-audit b{display:block;font:600 15px/1.25 var(--sans);letter-spacing:-.02em;text-wrap:pretty;text-shadow:0 2px 18px rgba(5,5,8,.95)}
+.c-audit p{margin:6px 0 0;font-size:13px;line-height:1.4;color:var(--ink-muted);text-shadow:0 2px 16px rgba(5,5,8,.95)}
+.c-audit form{margin-top:10px;padding:0;border:0;border-radius:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:visible;display:flex;flex-direction:column;gap:8px;width:100%}
+.c-audit .input{width:100%;height:40px}
+.c-audit .btn{justify-content:center;height:40px}
+.c-audit .errmsg{display:block;margin-top:2px;font-size:11px}
+@media (max-width:860px){#contact{flex-direction:column}#contact>.wrap{order:1}.c-side{position:relative;top:auto;right:auto;transform:none;width:min(100%,520px);height:auto;margin:24px auto 0;order:2;overflow:visible}.cball{position:relative;width:min(100%,520px);height:min(92vw,520px)}.c-audit{position:relative;top:auto;right:auto;bottom:auto;left:auto;width:100%;height:auto;overflow:visible;margin-top:16px;padding-inline:clamp(16px,4vw,56px)}.c-audit form{width:100%}}
 
 .sbox .sb-bar{display:none}
 .sbox .sb-body{padding-top:clamp(28px,3vw,44px)}
@@ -649,7 +634,7 @@ html{background:#060507}
 .sx-vis canvas,.sx-bg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 /* A, web design: visual first, numbered list */
 #webdesign{padding-block:48px 36px}
-.sx-a .sx-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:clamp(28px,4vw,64px);row-gap:36px;align-items:start;width:100%}
+.sx-a .sx-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:clamp(28px,4vw,64px);row-gap:52px;align-items:start;width:100%}
 .sx-a .sx-vis{aspect-ratio:4/3;max-height:min(52vh,420px)}
 .sx-a .h-lg{font-size:clamp(28px,3.2vw,44px);margin-top:10px}
 .sx-a .lead{margin-top:10px;font-size:15px}
@@ -868,10 +853,12 @@ html{background:#060507}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#hero" aria-label="elsomlabs home"><span class="wordmark" aria-hidden="true"><b>elsom</b>labs</span></a>
+    <div class="top-end">
     <nav aria-label="Primary" id="nav">
-      <a href="#services">Services</a><a href="#work">Portfolio</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+      <a href="#services">Services</a><a href="#work">Portfolio</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
     </nav>
     <a class="btn btn-primary" href="#contact" style="height:38px;font-size:13px">Start a project</a>
+    </div>
   </div>
 </header>
 
@@ -881,10 +868,11 @@ html{background:#060507}
 <main>
   <section id="hero" data-label="Intro">
     <div class="wrap"><div class="col">
-      <span class="eyebrow fade"><b>●</b> Websites · Software · Automation</span>
+      <span class="eyebrow fade"><span class="brand">elsomlabs</span> <b>·</b> Chicago, IL <b>·</b> East Sussex, UK</span>
       <h1 class="h-xl split">Websites that win the <span class="grad">work</span>.<br>Software that runs it.</h1>
       <p class="lead fade">Elsomlabs designs and builds the websites and tools your business relies on, and automates the repetitive parts.</p>
       <div class="ctas fade"><a class="btn btn-primary" href="#contact">Start a project <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#work">See the work</a></div>
+      <span class="eyebrow fade"><b>●</b> Websites · Software · Automation</span>
     </div></div>
   </section>
 
@@ -921,13 +909,13 @@ html{background:#060507}
     <div class="wrap"><div class="col">
       <span class="eyebrow fade"><b>04</b> Process</span>
       <h2 class="h-lg split">From first call to launch</h2>
-      <p class="lead fade">Four stages, every project. Timelines flex with scope; these are typical.</p>
+      <p class="lead fade">Four stages, every project.</p>
     </div>
       <div class="steps" id="steps">
-        <div class="step fade"><div class="sm" data-step="01"><span class="sm-n">01</span><span class="sm-t">1–2 wks</span><canvas class="sm-cv" id="radarCv" aria-hidden="true"></canvas></div><h3>Discover</h3><p>Goals, users and constraints, turned into a clear scope and fixed quote.</p></div>
-        <div class="step fade"><div class="sm" data-step="02"><span class="sm-n">02</span><span class="sm-t">2–4 wks</span><canvas class="sm-cv" id="scanCv" aria-hidden="true"></canvas></div><h3>Design</h3><p>Flows and high-fidelity screens, reviewed together until they're right.</p></div>
-        <div class="step fade"><div class="sm" data-step="03"><span class="sm-n">03</span><span class="sm-t">4–10 wks</span><canvas class="sm-cv" id="blocksCv" aria-hidden="true"></canvas></div><h3>Build</h3><p>Short cycles with a live staging link, so you see progress every week.</p></div>
-        <div class="step fade"><div class="sm" data-step="04"><span class="sm-n">04</span><span class="sm-t">Ongoing</span><canvas class="sm-cv" id="globeCv" aria-hidden="true"></canvas></div><h3>Launch</h3><p>We ship, monitor and fix, then stay on as your needs grow.</p></div>
+        <div class="step fade"><div class="sm" data-step="01"><span class="sm-n">01</span><canvas class="sm-cv" id="radarCv" aria-hidden="true"></canvas></div><h3>Discover</h3><p>Goals, users and constraints, turned into a clear scope and fixed quote.</p></div>
+        <div class="step fade"><div class="sm" data-step="02"><span class="sm-n">02</span><canvas class="sm-cv" id="scanCv" aria-hidden="true"></canvas></div><h3>Design</h3><p>Flows and high-fidelity screens, reviewed together until they're right.</p></div>
+        <div class="step fade"><div class="sm" data-step="03"><span class="sm-n">03</span><canvas class="sm-cv" id="blocksCv" aria-hidden="true"></canvas></div><h3>Build</h3><p>Short cycles with a live staging link, so you see progress every week.</p></div>
+        <div class="step fade"><div class="sm" data-step="04"><span class="sm-n">04</span><canvas class="sm-cv" id="globeCv" aria-hidden="true"></canvas></div><h3>Launch</h3><p>We ship, monitor and fix, then stay on as your needs grow.</p></div>
       </div>
     </div>
     <div class="wrap pr-integr">
@@ -945,10 +933,10 @@ html{background:#060507}
         <span class="eyebrow fade"><b>05</b> Web design</span>
         <h2 class="h-lg split">Websites that win the work</h2>
         <p class="lead fade">Custom-designed marketing sites, built to load fast, rank well and be easy for your team to update.</p>
-        <ol class="sx-num fade"><li><span class="sx-n">01</span><div><b>Custom design</b><span>Made for your brand, never a template.</span></div></li><li><span class="sx-n">02</span><div><b>Edit it yourself</b><span>Change pages and posts without calling us.</span></div></li><li><span class="sx-n">03</span><div><b>Fast and accessible</b><span>Quick on every phone, usable by everyone.</span></div></li><li><span class="sx-n">04</span><div><b>Built to be found</b><span>Clean structure and SEO foundations from day one.</span></div></li><li><span class="sx-n">05</span><div><b>Bookings and payments</b><span>Stripe, Booksy, calendars, wired in properly.</span></div></li><li><span class="sx-n">06</span><div><b>Hosting and care</b><span>Secure, backed up and kept up to date.</span></div></li></ol>
+        <ol class="sx-num fade"><li><span class="sx-n">01</span><div><b>Custom design</b><span>Made for your brand, never a template.</span></div></li><li><span class="sx-n">02</span><div><b>Fast and accessible</b><span>Quick on every phone, usable by everyone.</span></div></li><li><span class="sx-n">03</span><div><b>Built to be found</b><span>Clean structure and SEO foundations from day one.</span></div></li><li><span class="sx-n">04</span><div><b>Bookings and payments</b><span>Stripe, Booksy, calendars, wired in properly.</span></div></li><li><span class="sx-n">05</span><div><b>Hosting and care</b><span>Secure, backed up and kept up to date.</span></div></li></ol>
         <a class="btn btn-line sx-cta fade" href="#contact">Discuss a website <span class="arr">&rarr;</span></a>
       </div>
-      <ul class="wd-metrics fade" aria-label="Web design metrics"><li><b><span class="wd-n" data-to="95">0</span><i>+</i></b><span>Lighthouse performance</span></li><li><b><span class="wd-n" data-to="14" data-to2="21">0–0</span> <i>days</i></b><span>Launch time</span></li><li><b><span class="wd-n" data-to="20">0</span><i>+</i></b><span>Sites launched</span></li><li><b><span class="wd-n" data-to="100">0</span><i>%</i></b><span>Built from scratch. No templates.</span></li></ul>
+      <ul class="wd-metrics fade" aria-label="Web design metrics"><li><b><span class="wd-n" data-to="95">0</span><i>+</i></b><span>Lighthouse performance</span></li><li><b><span class="wd-n" data-to="14">0</span> <i>days</i></b><span>Launch time</span></li><li><b><span class="wd-n" data-to="20">0</span><i>+</i></b><span>Sites launched</span></li><li><b><span class="wd-n" data-to="100">0</span><i>%</i></b><span>Built from scratch. No templates.</span></li></ul>
     </div>
   </section>
 
@@ -1759,35 +1747,17 @@ e.preventDefault();try{window.parent.dispatchEvent(new window.parent.WheelEvent(
       <span class="eyebrow fade"><b>07</b> Pricing</span>
       <h2 class="h-lg split">Clear prices, no surprises</h2>
       <p class="lead fade">A fixed quote after a free call. Every price includes design, build and launch.</p>
-      <div class="plans"><div class="plan fade"><h3>Launch</h3><p class="pb">Everything your business needs to establish a stronger online presence.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$1,200</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$149</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Custom-designed website, up to 5 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Looks and works properly on phones, tablets and desktops</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Hosting, SSL certificate, backups and site maintenance included</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Basic on-page SEO so local customers can find you</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 2 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Email support with a reply within 24 hours</li></ul><a class="btn btn-line" href="#contact">Build my website <span class="arr">&rarr;</span></a></div><div class="plan fade hot"><span class="badge">Most popular</span><h3>Scale</h3><p class="pb">For growing businesses that want enquiries and bookings.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$2,500</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$249</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Everything in the Launch package</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 15 pages, plus a blog you can publish to</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Google reviews, social media feeds and online booking connected to your site</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing local SEO, Google Business Profile help and traffic tracking</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 5 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Monthly report on how your site is performing</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Priority email support with a reply within 24 to 48 hours</li></ul><p class="pn">Need more than 15 pages? Larger sites are quoted individually.</p><a class="btn btn-primary" href="#contact">Book a call <span class="arr">&rarr;</span></a></div><div class="plan fade"><h3>Software &amp; Automation</h3><p class="pb">For custom apps, portals and automation that run your business.</p><div class="pp-duo"><div class="row"><small>Project pricing</small><div><b>Custom quote</b><span>based on scope</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Web apps and client portals</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Integrations with Google Workspace and the tools you already use</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Automated workflows that replace manual data entry and follow-ups</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>AI voice agents and process automation</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Quoted after a short discovery call</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing support available</li></ul><a class="btn btn-line" href="#contact">Talk it through <span class="arr">&rarr;</span></a></div></div>
+      <div class="plans"><div class="plan fade"><h3>Launch</h3><p class="pb">Everything your business needs to establish a stronger online presence.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$1,200</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$149</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Custom-designed website, up to 5 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Looks and works properly on phones, tablets and desktops</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Hosting, SSL certificate, backups and site maintenance included</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Basic on-page SEO so local customers can find you</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 2 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Email support with a reply within 24 hours</li></ul><a class="btn btn-line" href="#contact">Build my website <span class="arr">&rarr;</span></a></div><div class="plan fade hot"><span class="badge">Most popular</span><h3>Scale</h3><p class="pb">For growing businesses that want enquiries and bookings.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$2,500</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$249</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Everything in the Launch package</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 15 pages, plus a blog you can publish to</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Google reviews, social media feeds and online booking connected to your site</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing SEO, Google Business Profile help and traffic tracking</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 5 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Monthly report on how your site is performing</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Priority email support with a reply within 24 to 48 hours</li></ul><p class="pn">Need more than 15 pages? Larger sites are quoted individually.</p><a class="btn btn-primary" href="#contact">Book a call <span class="arr">&rarr;</span></a></div><div class="plan fade"><h3>Software &amp; Automation</h3><p class="pb">For custom apps, portals and automation that run your business.</p><div class="pp-duo"><div class="row"><small>Project pricing</small><div><b>Custom quote</b><span>based on scope</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Web apps and client portals</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Integrations with Google Workspace and the tools you already use</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Automated workflows that replace manual data entry and follow-ups</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>AI voice agents and process automation</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Quoted after a short discovery call</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing support available</li></ul><a class="btn btn-line" href="#contact">Talk it through <span class="arr">&rarr;</span></a></div></div>
     </div>
   </section>
 
-  <section id="faq" data-label="FAQ" aria-labelledby="faq-h">
-    <div class="wrap"><div class="faq-grid">
-      <div class="faq-head">
-        <span class="eyebrow fade"><b>08</b> FAQ</span>
-        <h2 class="h-lg split" id="faq-h">Before you get in touch</h2>
-        <p class="lead fade">Short answers to what most people ask on the first call.</p>
-        <a class="btn btn-line fade" href="#contact">Ask us directly <span class="arr">&rarr;</span></a>
-      </div>
-      <ul class="faq-list fade" id="faqList">
-        <li class="faq-item open"><h3><button class="faq-q" type="button" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">How much does a project cost?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div><p>You get a fixed quote after a free call. Every price includes design, build and launch, and prices exclude VAT. Starting prices for websites are listed in the Pricing section. Software and automation are scoped per project, so the quote reflects what you actually need.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">How long will it take?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div><p>A starter site is typically live in 2&ndash;3 weeks. Larger projects run in stages: discovery takes 1&ndash;2 weeks, design 2&ndash;4 weeks and build 4&ndash;10 weeks. Timelines flex with scope. During the build you get a live staging link, so you see progress every week.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">What happens on the first call?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div><p>We talk through your goals, who the project is for and any constraints. After the call we turn that into a clear scope and a fixed quote. The call is free.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Can I update the website myself?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div><p>Yes. We build sites so your team can change pages and posts without calling us. The Business site plan includes a CMS for exactly this.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">Can you connect to the tools we already use?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div><p>Usually, yes. We work with tools such as Stripe, PayPal, Shopify, Square, Google Calendar, Outlook, Booksy, Salesforce, Slack, WhatsApp Business, Intercom, QuickBooks and Xero. If yours is not on that list, ask on the call.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">Can my site take bookings and payments?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div><p>Yes. We wire in Stripe, Booksy and calendars properly, and the Business site plan includes booking or enquiry flows.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q7" aria-expanded="false" aria-controls="faq-a7">What kind of software do you build?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div><p>Client portals, dashboards, internal tools, booking and job tracking, secure accounts with roles and permissions, and connections to the systems you already run. Each one is shaped around how your team works and scoped with a fixed quote.</p></div></div></li>
-        <li class="faq-item"><h3><button class="faq-q" type="button" id="faq-q8" aria-expanded="false" aria-controls="faq-a8">Do you look after the project after launch?<span class="faq-ic" aria-hidden="true"></span></button></h3><div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div><p>Yes. We monitor and fix after launch and stay on as your needs grow. For websites, a care plan covers hosting, updates and support, so the site stays secure, backed up and up to date. Ongoing support is also available for software projects.</p></div></div></li>
-      </ul>
-    </div></div>
-  </section>
-
   <section id="contact" data-label="Contact">
+    <div class="c-side">
     <div class="cball" id="cball" aria-hidden="true"></div>
+    <aside class="c-audit fade"><b>We'll run a free audit on your existing site</b><p>We look at speed, mobile layout, SEO foundations, and whether visitors can actually find you and get in touch.</p><form id="auditForm" novalidate><input class="input" id="f-site" type="url" inputmode="url" autocomplete="url" placeholder="yoursite.com" aria-label="Your website"><button class="btn btn-line" type="submit">Request audit <span class="arr">&rarr;</span></button></form><span class="errmsg" id="e-site"></span></aside>
+    </div>
     <div class="wrap"><div class="col">
-      <span class="eyebrow fade"><b>09</b> Contact</span>
+      <span class="eyebrow fade"><b>08</b> Contact</span>
       <h2 class="h-lg split">Let's build <span class="grad">something good</span></h2>
       <form id="form" novalidate class="fade">
         <div class="field"><span class="lbl" id="l-t">What do you need?</span>
@@ -1817,7 +1787,7 @@ e.preventDefault();try{window.parent.dispatchEvent(new window.parent.WheelEvent(
     </div></div>
   </section>
 </main>
-<footer><div class="wrap"><span>© <span id="yr"></span> elsomlabs</span><span>Websites · Software · Automation · Design systems</span></div></footer>
+<footer><div class="wrap"><span>© <span id="yr"></span> elsomlabs</span><span>Websites · Software · Automation</span></div></footer>
 
 <div class="peek" id="peek" aria-hidden="true"></div>
 
@@ -1934,17 +1904,13 @@ document.getElementById('form').addEventListener('submit',function(e){e.preventD
   var ok=err('name',n?'':'Enter your name.')&err('email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)?'':'Enter an email address like name@company.com.')&err('biz',b?'':'Enter your business name.')&err('time',ti?'':'Choose a timeline.')&err('pref',pr?'':'Choose a contact method.')&err('msg',t.length>=10?'':'Add a sentence or two about the project.');
   if(ok)document.getElementById('sent').classList.add('show');});
 document.getElementById('again').onclick=function(){document.getElementById('sent').classList.remove('show')};
-
-/* ---------- faq accordion ---------- */
-document.getElementById('faqList').addEventListener('click',function(e){
-  var b=e.target.closest('.faq-q');if(!b)return;
-  var item=b.closest('.faq-item'),open=!item.classList.contains('open');
-  item.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');
-});
+document.getElementById('auditForm').addEventListener('submit',function(e){e.preventDefault();
+  var v=document.getElementById('f-site').value.trim(),ok=err('site',/^(https?:\/\/)?[^\s]+\.[^\s]{2,}/i.test(v)?'':'Enter a website address like yoursite.com.');
+  document.getElementById('f-site').classList.toggle('err',!ok);
+  if(ok){var n=document.getElementById('e-site');n.style.color='var(--ink-muted)';n.textContent='This is a preview site, so nothing was sent. On the live site we will run the audit from this address.';}});
 
 /* ---------- section progress ---------- */
-/* #faq sits between Pricing and Contact but has no 3D layout, so it stays out of the scene's section list */
-var secs=[].slice.call(document.querySelectorAll('main section:not(#faq)')),allSecs=[].slice.call(document.querySelectorAll('main section')),navA=[].slice.call(document.querySelectorAll('#nav a'));
+var secs=[].slice.call(document.querySelectorAll('main section')),navA=[].slice.call(document.querySelectorAll('#nav a'));
 var hIdx=document.getElementById('hIdx'),hBar=document.getElementById('hBar'),hLab=document.getElementById('hLab'),cue=document.getElementById('cue'),steps=[].slice.call(document.querySelectorAll('.step'));
 var prog=0,progT=0,litIdx=0,stepF=0;
 function measure(){
@@ -1953,12 +1919,8 @@ function measure(){
     if(i<secs.length-1){var c2=secs[i+1].offsetTop+secs[i+1].offsetHeight/2;if(mid>=c&&mid<c2){p=i+(mid-c)/(c2-c);break}}
     if(mid<c&&i===0){p=0;break} if(i===secs.length-1)p=secs.length-1;}
   progT=p;
-  /* the HUD and nav count #faq as a page of its own, even though the 3D scene (p, above) does not */
-  var pa=0;for(var j=0;j<allSecs.length;j++){var sj=allSecs[j],cj=sj.offsetTop+sj.offsetHeight/2;
-    if(j<allSecs.length-1){var cj2=allSecs[j+1].offsetTop+allSecs[j+1].offsetHeight/2;if(mid>=cj&&mid<cj2){pa=j+(mid-cj)/(cj2-cj);break}}
-    if(mid<cj&&j===0){pa=0;break} if(j===allSecs.length-1)pa=allSecs.length-1}
-  var k=Math.round(pa);hIdx.textContent='0'+(k+1);hLab.textContent=allSecs[k].dataset.label;hBar.style.width=(pa/(allSecs.length-1)*100)+'%';
-  navA.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+allSecs[k].id)});
+  var k=Math.round(p);hIdx.textContent='0'+(k+1);hLab.textContent=secs[k].dataset.label;hBar.style.width=(p/(secs.length-1)*100)+'%';
+  navA.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+secs[k].id)});
   cue.style.opacity=scrollY>40?0:1;
   stepF=Math.max(0,Math.min(3.999,(p-2.5)/.7*4));litIdx=Math.floor(stepF);steps.forEach(function(s,i){s.classList.toggle('lit',p>2.35&&p<3.6&&i===litIdx)});
 }
@@ -1972,7 +1934,6 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
   /* section lock covers the first LOCKN sections (Hero, Services, Recent projects); the rest of the page scrolls freely */
   var LOCKN=3,lockEnd=0;
   var busy=false,lastWheel=0,lastAbs=0,glideStart=0,pending=0,stops=[];
-  /* the lock includes #faq, which the 3D scene does not */
   var lockSecs=[].slice.call(document.querySelectorAll('main section'));
   function build(){stops=[];var vh=innerHeight,max=document.documentElement.scrollHeight-vh;
     lockSecs.forEach(function(sec,i){if(i>=LOCKN)return;var t=sec.offsetTop,h=sec.offsetHeight;
@@ -2009,8 +1970,8 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
     if(!dir)return;if(e.target.closest&&e.target.closest('button,a')&&k===' ')return;var y=scrollY;if(!busy&&((dir>0&&y>=lockEnd-2)||(dir<0&&y>lockEnd+2&&y-innerHeight*.6>lockEnd)))return;if(!busy&&dir<0&&y>lockEnd+2){e.preventDefault();glide(lockEnd);return}e.preventDefault();if(busy){pending=dir;return}if(inFree(scrollY,dir)){window.scrollBy({top:dir*innerHeight*.6,behavior:'smooth'});return}var t=next(dir);if(t)glide(t.y)});
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||!on())return;var id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;
     var i=lockSecs.indexOf(el);if(i<0||i>=LOCKN)return;e.preventDefault();build();var y=i===0?0:(el.offsetHeight<=innerHeight*1.08?el.offsetTop+el.offsetHeight/2-innerHeight/2:el.offsetTop);glide(Math.max(0,y));history.replaceState(null,'','#'+id)});
-  /* gentle magnet for Software and Pricing (not a lock): Work is inside the hard lock above. Any wheel, key or touch cancels it. */
-  var swEls=['software','pricing'].map(function(id){return document.getElementById(id)}).filter(Boolean),snapT=0,snapRaf=0;
+  /* gentle magnet for Process, Web design, Software and Pricing (not a lock): Work is inside the hard lock above. Any wheel, key or touch cancels it. */
+  var swEls=['process','webdesign','software','pricing'].map(function(id){return document.getElementById(id)}).filter(Boolean),snapT=0,snapRaf=0;
   function snapTo(ty){cancelAnimationFrame(snapRaf);var y0=scrollY,d=ty-y0,t0=performance.now(),D=reduce?0:320;
     if(!D){window.scrollTo({top:ty,behavior:'instant'});return}
     (function step(now){var f=Math.max(0,Math.min(1,(now-t0)/D));window.scrollTo({top:y0+d*(1-Math.pow(1-f,3)),behavior:'instant'});if(f<1)snapRaf=requestAnimationFrame(step)})(t0)}

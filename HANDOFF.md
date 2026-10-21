@@ -19,7 +19,7 @@ This file records everything that was decided while the site was built. Read it 
 | CSS | the first `<style>` (top of file, ends ~line 651) |
 | Wide-screen scaling script | tiny inline `<script>` right after the CSS (sets `window.__Z` and `--z`) |
 | Header/nav | `<header class="top">` |
-| Sections, in order | `#hero`(0) `#services`(1) `#work`(2) `#process`(3) `#webdesign`(4) `#software`(5) `#pricing`(6) `#contact`(7). `#faq` sits between Pricing and Contact; it is in the scroll-lock but not in the 3D scene list |
+| Sections, in order | `#hero`(0) `#services`(1) `#work`(2) `#process`(3) `#webdesign`(4) `#software`(5) `#pricing`(6) `#contact`(7). FAQ removed for now. |
 | RoutingLab demo | inside `#software`: `<iframe id="rlFrame">` plus `<template id="rlSrc">` holding the whole demo HTML; a small script sets `iframe.srcdoc` |
 | Main JS | `<script src=...three.min.js>` then a big inline script with several IIFEs |
 | Portfolio | IIFE after `var WORK=[...]`; uses `#wkStage` / `#wkThumbs` |
@@ -59,4 +59,4 @@ The real RoutingLab app is proprietary and must never be linked or exposed. The 
 
 ## Open ideas (none of these were requested)
 
-Working contact form; real prices instead of `$xxx`; remove "Prices exclude VAT"; privacy policy; SEO / share image; about section; testimonials; case studies; FAQ; lazy-load heavy assets; booking link; analytics.
+Working contact form; real prices instead of `$xxx`; remove "Prices exclude VAT"; privacy policy; SEO / share image; about section; testimonials; case studies; restore FAQ; lazy-load heavy assets; booking link; analytics.
