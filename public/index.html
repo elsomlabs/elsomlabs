@@ -564,7 +564,7 @@ html{background:#060507}
 #contact{position:relative}
 .c-side{position:absolute;z-index:4;top:calc(50% + 96px);right:max(0px,calc((100vw - 1400px)/2 - 120px));width:min(50vw,680px);height:min(86vh,680px);transform:translateY(-50%);overflow:visible;pointer-events:none}
 .cball{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.c-audit{position:absolute;z-index:5;top:608.39px;right:696px;bottom:314.61px;left:-98px;width:278px;height:220px;overflow:hidden;pointer-events:auto;box-sizing:border-box}
+.c-audit{position:absolute;z-index:5;top:555.39px;right:696px;bottom:314.61px;left:-98px;width:278px;height:220px;overflow:hidden;pointer-events:auto;box-sizing:border-box}
 .c-audit b{display:block;font:600 15px/1.25 var(--sans);letter-spacing:-.02em;text-wrap:pretty;text-shadow:0 2px 18px rgba(5,5,8,.95)}
 .c-audit p{margin:6px 0 0;font-size:13px;line-height:1.4;color:var(--ink-muted);text-shadow:0 2px 16px rgba(5,5,8,.95)}
 .c-audit form{margin-top:10px;padding:0;border:0;border-radius:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:visible;display:flex;flex-direction:column;gap:8px;width:100%}
@@ -591,6 +591,7 @@ html{background:#060507}
 .wk-stage{position:relative;width:100%;aspect-ratio:16/10;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0e0e12;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
 .wk-stage img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .wk-live{position:absolute;left:0;top:0;width:1400px;height:875px;border:0;transform-origin:0 0;pointer-events:none;background:#262626}
+@media (pointer:fine) and (min-width:861px){.wk-live{pointer-events:auto}}
 .wk-thumbs{display:flex;gap:10px;margin-top:12px}
 .wk-thumb{flex:1 1 0;min-width:0;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0e0e12;cursor:pointer;opacity:.55;transition:opacity .25s,border-color .25s,transform .25s var(--ease)}
 .wk-thumb img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;pointer-events:none}
@@ -636,6 +637,9 @@ html{background:#060507}
 #webdesign{padding-block:48px 36px}
 .sx-a .sx-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:clamp(28px,4vw,64px);row-gap:52px;align-items:start;width:100%}
 .sx-a .sx-vis{aspect-ratio:4/3;max-height:min(52vh,420px)}
+.sx-a .sx-vis img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.sx-wd-live{position:absolute;left:0;top:0;width:1400px;height:875px;border:0;transform-origin:0 0;pointer-events:none;background:#262626}
+@media (pointer:fine) and (min-width:861px){.sx-wd-live{pointer-events:auto}}
 .sx-a .h-lg{font-size:clamp(28px,3.2vw,44px);margin-top:10px}
 .sx-a .lead{margin-top:10px;font-size:15px}
 .sx-a .sx-cta{margin-top:16px;height:38px;font-size:13px}
@@ -870,7 +874,7 @@ html{background:#060507}
     <div class="wrap"><div class="col">
       <span class="eyebrow fade"><span class="brand">elsomlabs</span> <b>·</b> Chicago, IL <b>·</b> East Sussex, UK</span>
       <h1 class="h-xl split">Websites that win the <span class="grad">work</span>.<br>Software that runs it.</h1>
-      <p class="lead fade">Elsomlabs designs and builds the websites and tools your business relies on, and automates the repetitive parts.</p>
+      <p class="lead fade">elsomlabs designs and builds the websites and tools your business relies on, and automates the repetitive parts.</p>
       <div class="ctas fade"><a class="btn btn-primary" href="#contact">Start a project <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#work">See the work</a></div>
       <span class="eyebrow fade"><b>●</b> Websites · Software · Automation</span>
     </div></div>
@@ -879,7 +883,7 @@ html{background:#060507}
   <section id="services" data-label="Services">
     <div class="wrap"><div class="col">
       <span class="eyebrow fade"><b>02</b> Services</span>
-      <h2 class="h-lg split">Three things, done properly</h2>
+      <h2 class="h-lg split">three things, done properly</h2>
       <div class="svc-list" id="svcList">
         <div class="svc fade on"><span class="n">A</span><h3>Web design</h3><span class="k">Design · Build · CMS</span><p>Marketing sites that load fast, read well and are easy for your team to update. <a class="svc-go" href="#pricing">See pricing &rarr;</a></p></div>
         <div class="svc fade"><span class="n">B</span><h3>Software</h3><span class="k">Apps · Portals · Tools</span><p>Web apps and internal tools shaped around how your people actually work. <a class="svc-go" href="#software">See the case study &rarr;</a></p></div>
@@ -892,7 +896,7 @@ html{background:#060507}
   <section id="work" data-label="Work">
     <div class="wrap wk-wrap">
       <div class="wk-head">
-        <div><span class="eyebrow"><b>03</b> Work</span><h2 class="h-lg">Recent projects</h2></div>
+        <div><span class="eyebrow"><b>03</b> Work</span><h2 class="h-lg">recent projects</h2></div>
         <div class="wk-nav"><button class="wk-btn" id="orbPrev" type="button" aria-label="Previous project">&larr;</button><span class="wk-count" id="orbCount">01 / 03</span><button class="wk-btn" id="orbNext" type="button" aria-label="Next project">&rarr;</button></div>
       </div>
       <div class="wk-body">
@@ -908,7 +912,7 @@ html{background:#060507}
   <section id="process" data-label="Process">
     <div class="wrap"><div class="col">
       <span class="eyebrow fade"><b>04</b> Process</span>
-      <h2 class="h-lg split">From first call to launch</h2>
+      <h2 class="h-lg split">from first call to launch</h2>
       <p class="lead fade">Four stages, every project.</p>
     </div>
       <div class="steps" id="steps">
@@ -928,10 +932,10 @@ html{background:#060507}
 
   <section id="webdesign" class="sx sx-a" data-label="Web design">
     <div class="wrap sx-wrap">
-      <div class="sx-vis fade"><canvas data-sx="site" data-w="500" data-h="400" aria-hidden="true"></canvas></div>
+      <div class="sx-vis fade" id="wdStage"><img id="wdImg" src="assets/work/sneaker.jpg" alt="SoleSupply preview"><iframe class="sx-wd-live" id="wdLive" hidden tabindex="-1" aria-hidden="true" title="SoleSupply live preview"></iframe></div>
       <div class="sx-copy">
         <span class="eyebrow fade"><b>05</b> Web design</span>
-        <h2 class="h-lg split">Websites that win the work</h2>
+        <h2 class="h-lg split">websites that win the work</h2>
         <p class="lead fade">Custom-designed marketing sites, built to load fast, rank well and be easy for your team to update.</p>
         <ol class="sx-num fade"><li><span class="sx-n">01</span><div><b>Custom design</b><span>Made for your brand, never a template.</span></div></li><li><span class="sx-n">02</span><div><b>Fast and accessible</b><span>Quick on every phone, usable by everyone.</span></div></li><li><span class="sx-n">03</span><div><b>Built to be found</b><span>Clean structure and SEO foundations from day one.</span></div></li><li><span class="sx-n">04</span><div><b>Bookings and payments</b><span>Stripe, Booksy, calendars, wired in properly.</span></div></li><li><span class="sx-n">05</span><div><b>Hosting and care</b><span>Secure, backed up and kept up to date.</span></div></li></ol>
         <a class="btn btn-line sx-cta fade" href="#contact">Discuss a website <span class="arr">&rarr;</span></a>
@@ -944,7 +948,7 @@ html{background:#060507}
     <div class="wrap sx-col">
       <div class="sx-head">
         <span class="eyebrow fade"><b>06</b> Software</span>
-        <h2 class="sx-show split">One of the tools we've shipped</h2>
+        <h2 class="sx-show split">one of the tools we've shipped</h2>
       </div>
       <div class="sx-split"><div class="sx-vis sx-wide sx-app fade"><iframe id="rlFrame" title="RoutingLab product demo with sample data"></iframe></div>
       <aside class="sx-about fade" aria-label="About RoutingLab">
@@ -1745,7 +1749,7 @@ e.preventDefault();try{window.parent.dispatchEvent(new window.parent.WheelEvent(
   <section id="pricing" data-label="Pricing">
     <div class="wrap">
       <span class="eyebrow fade"><b>07</b> Pricing</span>
-      <h2 class="h-lg split">Clear prices, no surprises</h2>
+      <h2 class="h-lg split">clear prices, no surprises</h2>
       <p class="lead fade">A fixed quote after a free call. Every price includes design, build and launch.</p>
       <div class="plans"><div class="plan fade"><h3>Launch</h3><p class="pb">Everything your business needs to establish a stronger online presence.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$1,200</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$149</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Custom-designed website, up to 5 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Looks and works properly on phones, tablets and desktops</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Hosting, SSL certificate, backups and site maintenance included</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Basic on-page SEO so local customers can find you</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 2 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Email support with a reply within 24 hours</li></ul><a class="btn btn-line" href="#contact">Build my website <span class="arr">&rarr;</span></a></div><div class="plan fade hot"><span class="badge">Most popular</span><h3>Scale</h3><p class="pb">For growing businesses that want enquiries and bookings.</p><div class="pp-duo"><div class="row"><small>One-time development</small><div><b>$2,500</b><span>setup</span></div></div><div class="row"><small>Then</small><div><b>$249</b><span>/ month</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Everything in the Launch package</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 15 pages, plus a blog you can publish to</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Google reviews, social media feeds and online booking connected to your site</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing SEO, Google Business Profile help and traffic tracking</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Up to 5 hours of content updates each month</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Monthly report on how your site is performing</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Priority email support with a reply within 24 to 48 hours</li></ul><p class="pn">Need more than 15 pages? Larger sites are quoted individually.</p><a class="btn btn-primary" href="#contact">Book a call <span class="arr">&rarr;</span></a></div><div class="plan fade"><h3>Software &amp; Automation</h3><p class="pb">For custom apps, portals and automation that run your business.</p><div class="pp-duo"><div class="row"><small>Project pricing</small><div><b>Custom quote</b><span>based on scope</span></div></div></div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Web apps and client portals</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Integrations with Google Workspace and the tools you already use</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Automated workflows that replace manual data entry and follow-ups</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>AI voice agents and process automation</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Quoted after a short discovery call</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Ongoing support available</li></ul><a class="btn btn-line" href="#contact">Talk it through <span class="arr">&rarr;</span></a></div></div>
     </div>
@@ -1931,8 +1935,8 @@ addEventListener('scroll',measure,{passive:true});addEventListener('resize',meas
 /* ---------- section lock: one wheel gesture or key press glides exactly one section (desktop only) ---------- */
 (function(){
   var fine=matchMedia('(pointer:fine)');function on(){return fine.matches&&innerWidth>860}
-  /* section lock covers the first LOCKN sections (Hero, Services, Recent projects); the rest of the page scrolls freely */
-  var LOCKN=3,lockEnd=0;
+  /* section lock covers the first LOCKN sections; 1e9 means every section is hard-locked */
+  var LOCKN=1e9,lockEnd=0;
   var busy=false,lastWheel=0,lastAbs=0,glideStart=0,pending=0,stops=[];
   var lockSecs=[].slice.call(document.querySelectorAll('main section'));
   function build(){stops=[];var vh=innerHeight,max=document.documentElement.scrollHeight-vh;
@@ -2684,7 +2688,7 @@ var ok=null;try{ok=CrystalizedBall(el,{preset:'plasma',color:'#ff6800',size:.8,c
 /* ---------- portfolio: featured preview + thumbs ---------- */
 var WORK=[
   {name:'Stunell Wills',type:'Website',live:true,img:'assets/work/stunell.jpg',url:'https://leestunell.elsomlabs.com',desc:'A will-writing practice in Hailsham, built to turn visitors into booked consultations.'},
-  {name:'Sneaker Reseller',type:'Website',live:true,img:'assets/work/sneaker.jpg',url:'https://weathered-sunset-a989.m-a4b.workers.dev/',embed:'https://weathered-sunset-a989.m-a4b.workers.dev/',desc:'A storefront for a sneaker reseller, with weekly drops, an authentication promise and a sell-to-us offer form.'},
+  {name:'Sneaker Reseller',type:'Website',live:true,img:'assets/work/sneaker.jpg',url:'https://solesupply.elsomlabs.com',embed:'https://solesupply.elsomlabs.com',desc:'An online storefront for a sneaker reseller, featuring interactive elements, engaging listings and ecommerce functionality.'},
   {name:'RoutingLab',type:'Software',caseStudy:true,img:'assets/work/routinglab.jpg',url:'#software',desc:'A dispatch and routing platform for fire protection, shown live in the Software section.'}
 ];
 (function(){
@@ -2698,7 +2702,7 @@ var WORK=[
   function wireLink(l,p){l.hidden=!p.url;if(!p.url)return;l.href=p.url;var internal=p.url.charAt(0)==='#';
     if(internal){l.removeAttribute('target');l.removeAttribute('rel');l.innerHTML='See case study <span class="arr" aria-hidden="true">&rarr;</span>'}
     else{l.setAttribute('target','_blank');l.setAttribute('rel','noopener');l.innerHTML='Visit live site <span class="arr" aria-hidden="true">&#8599;</span>'}}
-  function fitLive(){if(live.hidden)return;var r=stage.getBoundingClientRect(),k=r.width/1400;live.style.transform='scale('+k+')';live.style.height=(r.height/k)+'px'}
+  function fitLive(){if(live.hidden)return;var sw=stage.offsetWidth,sh=stage.offsetHeight,W=sw>480?1920:1400,k=sw/W;live.style.width=W+'px';live.style.transform='scale('+k+')';live.style.height=(sh/k)+'px'}
   function set(i,quiet){i=Math.max(0,Math.min(n-1,i));var changed=i!==cur;cur=i;var p=WORK[i];
     img.src=p.img;img.alt=p.name+' preview';
     if(p.embed&&canEmbed){live.hidden=false;live.setAttribute('aria-hidden','false');if(live.getAttribute('src')!==p.embed)live.src=p.embed;live.title=p.name+' live preview';fitLive()}
@@ -2720,6 +2724,16 @@ var WORK=[
   window.__orbM={el:function(){return stage},src:function(){return WORK[cur].img},vis:function(){}};
   var mid=cur,sec=document.getElementById('work');
   if(window.IntersectionObserver)new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&cur!==mid)set(mid,true)})}).observe(sec);
+})();
+/* web design: live SoleSupply preview, same embed pattern as #work */
+(function(){
+  var stage=document.getElementById('wdStage'),live=document.getElementById('wdLive');
+  if(!stage||!live)return;
+  var url='https://solesupply.elsomlabs.com';
+  var canEmbed=(function(){try{return window.top===window.self}catch(e){return false}})();
+  function fitLive(){if(live.hidden)return;var sw=stage.offsetWidth,sh=stage.offsetHeight,W=sw>480?1920:1400,k=sw/W;live.style.width=W+'px';live.style.transform='scale('+k+')';live.style.height=(sh/k)+'px'}
+  if(canEmbed){live.hidden=false;live.setAttribute('aria-hidden','false');live.src=url;live.title='SoleSupply live preview';fitLive()}
+  if(window.ResizeObserver)new ResizeObserver(fitLive).observe(stage);addEventListener('resize',fitLive);
 })();
 </script>
 <script>
@@ -2861,7 +2875,7 @@ var WORK=[
     rr(c,34,34,432,332,14);c.fillStyle='#111116';c.fill();c.strokeStyle='rgba(255,255,255,.1)';c.lineWidth=1;c.stroke();
     [0,1,2].forEach(function(i){c.fillStyle=i?'rgba(255,255,255,.16)':OR;c.beginPath();c.arc(56+i*14,56,4,0,7);c.fill()});
     rr(c,150,45,200,22,11);c.fillStyle='rgba(255,255,255,.05)';c.fill();c.strokeStyle='#8b8c97';c.lineWidth=1.4;rr(c,166,52,9,7,1.5);c.stroke();c.beginPath();c.arc(170.5,52,3,Math.PI,0);c.stroke();
-    txt(c,'yourbusiness.com',260,56.5,'rgba(255,255,255,.65)','center',10.5);
+    txt(c,'solesupply.elsomlabs.com',260,56.5,'rgba(255,255,255,.65)','center',10.5);
     var lb=cl(p/1.1,0,1);if(p<1.3){c.fillStyle=OR;c.fillRect(34,78,432*lb,2)}
     var S=[[54,92,392,22,'nav'],[54,124,392,112,'hero'],[54,246,120,80,'c'],[184,246,120,80,'hot'],[314,246,132,80,'c'],[54,336,392,16,'foot']];
     S.forEach(function(b,i){var k=sm(1+i*.55,1.6+i*.55,p)*out;if(k<=0)return;c.save();c.globalAlpha=k;c.translate(0,(1-k)*10);var x=b[0],y=b[1],w=b[2],h=b[3];
