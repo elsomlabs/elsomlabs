@@ -735,7 +735,9 @@ html{background:#060507}
 .zs #process .wrap.pr-integr{left:0;right:0;width:calc(100%/var(--z));bottom:calc(60px*var(--z));transform-origin:50% 100%}
 .zs .hud{left:calc(clamp(16px,4vw,56px)*var(--z));bottom:calc((24px + env(safe-area-inset-bottom,0px))*var(--z));transform:scale(var(--z));transform-origin:0 100%}
 .zs .scrollcue{right:calc(clamp(16px,4vw,56px)*var(--z));bottom:calc((24px + env(safe-area-inset-bottom,0px))*var(--z));transform:scale(var(--z));transform-origin:100% 100%}
-</style><script>(function(){function z(){var w=innerWidth,h=innerHeight,k=Math.min(w/1440,h/880);k=w>1500&&k>1.05?Math.min(k,2.4):1;window.__Z=k;document.documentElement.style.setProperty('--z',k.toFixed(4));document.documentElement.classList.toggle('zs',k>1);if(window.__pinHt)window.__pinHt()}z();addEventListener('resize',z)})();</script>
+/* herotest is local-only; hidden on live until .dev is set on localhost */
+html:not(.dev) #herotest,html:not(.dev) #nav a[href="#herotest"]{display:none!important}
+</style><script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||location.protocol==='file:')document.documentElement.classList.add('dev');function z(){var w=innerWidth,h=innerHeight,k=Math.min(w/1440,h/880);k=w>1500&&k>1.05?Math.min(k,2.4):1;window.__Z=k;document.documentElement.style.setProperty('--z',k.toFixed(4));document.documentElement.classList.toggle('zs',k>1);if(window.__pinHt)window.__pinHt()}z();addEventListener('resize',z)})();</script>
 
 
 <div class="motion" id="motionBar" hidden><span>Animation is paused because your device is set to reduce motion.</span><button id="motionOn">Play animation</button></div>
@@ -1136,6 +1138,8 @@ document.getElementById('auditForm').addEventListener('submit',function(e){e.pre
   if(ok){var n=document.getElementById('e-site');n.style.color='var(--ink-muted)';n.textContent='This is a preview site, so nothing was sent. On the live site we will run the audit from this address.';}});
 
 /* ---------- section progress ---------- */
+/* drop herotest from scroll/HUD when not in local .dev mode */
+if(!document.documentElement.classList.contains('dev')){var _ht=document.getElementById('herotest'),_ha=document.querySelector('#nav a[href="#herotest"]');if(_ht)_ht.remove();if(_ha)_ha.remove();if(location.hash==='#herotest')history.replaceState(null,'',location.pathname+location.search)}
 var secs=[].slice.call(document.querySelectorAll('main section')),navA=[].slice.call(document.querySelectorAll('#nav a'));
 var hIdx=document.getElementById('hIdx'),hBar=document.getElementById('hBar'),hLab=document.getElementById('hLab'),cue=document.getElementById('cue'),steps=[].slice.call(document.querySelectorAll('.step'));
 var prog=0,progT=0,litIdx=0,stepF=0;
