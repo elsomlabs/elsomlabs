@@ -134,13 +134,14 @@ section > .wrap{width:100%}
 @media (min-width:1024px){
   #hero{position:relative;width:100%;height:100vh;min-height:640px;margin:0;padding:0;overflow:hidden;background:#4C1D95;display:block}
   #hero .ht-frame{display:none}
-  #hero .hero-img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;pointer-events:none}
-  #hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.32) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,0) 48%)}
+  #hero .hero-img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;z-index:0;pointer-events:none}
+  #hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.38) 0%,rgba(0,0,0,.14) 34%,rgba(0,0,0,0) 52%)}
   #hero>.wrap{position:absolute;z-index:2;left:calc(clamp(16px,4vw,56px) + 62px);bottom:36%;width:min(44vw,540px);max-width:min(44vw,540px);margin:0;padding:0;box-sizing:border-box}
   #hero .col{max-width:none;width:100%}
   #hero .eyebrow{margin-top:0;font-size:15px}
-  /* nowrap keeps the intentional 2 lines from the <br>; font sized so line 2 fits the safe column */
-  #hero .h-xl{font-size:clamp(30px,2.5vw,46px);margin-top:22px;white-space:nowrap;max-width:100%}
+  /* two solid lines — never orphan “too.” mid-wrap */
+  #hero .h-xl{font-size:clamp(30px,2.5vw,46px);margin-top:22px;max-width:100%}
+  #hero .h-xl .hline{display:block;white-space:nowrap}
   #hero .lead{font-size:clamp(16px,1.25vw,19px);max-width:100%;margin-top:22px}
   #hero .ctas{margin-top:32px;gap:14px}
   #hero .ctas .btn{height:46px;padding:0 22px;font-size:15px}
@@ -894,7 +895,7 @@ html:not(.dev) #herotest,html:not(.dev) #nav a[href="#herotest"]{display:none!im
     <div class="ht-frame" aria-hidden="true"><img class="ht-bust" src="assets/herotest-bust.jpg" alt="" decoding="async"></div>
     <div class="wrap"><div class="col">
       <span class="eyebrow fade"><span class="brand">elsomlabs</span> <b>·</b> Chicago, IL <b>·</b> East Sussex, UK</span>
-      <h1 class="h-xl split">You work <span class="grad">hard</span>,<br>your website should too.</h1>
+      <h1 class="h-xl split"><span class="hline">You work <span class="grad">hard</span>,</span><span class="hline">your website should too.</span></h1>
       <p class="lead fade">we design and build the websites and visuals your business relies on.</p>
       <div class="ctas fade"><a class="btn btn-primary" href="#contact">Start a project <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#work">See the work</a></div>
       <span class="eyebrow fade"><b>●</b> Web Design · AI Generation</span>
@@ -1052,6 +1053,7 @@ document.querySelectorAll('.split').forEach(function(h){
   var out='',d=0;
   function walk(node,wrapCls){node.childNodes.forEach(function(n){
     if(n.nodeName==='BR'){out+='<br>';return}
+    if(n.nodeType===1&&n.classList&&n.classList.contains('hline')){out+='<span class="hline">';walk(n,wrapCls);out+='</span>';return}
     if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){out+=' ';return}out+='<span class="ln" style="display:inline-block"><span class="wd'+(wrapCls?' '+wrapCls:'')+'" style="transition-delay:'+(d++*60)+'ms">'+w+'</span></span>'})}
     else walk(n,n.className)});}
   walk(tmp,'');h.innerHTML=out;h.setAttribute('aria-label',tmp.textContent);
