@@ -136,7 +136,7 @@ section > .wrap{width:100%}
   #hero .ht-frame{display:none}
   #hero .hero-img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;z-index:0;pointer-events:none}
   #hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.38) 0%,rgba(0,0,0,.14) 34%,rgba(0,0,0,0) 52%)}
-  #hero>.wrap{position:absolute;z-index:2;left:calc(clamp(16px,4vw,56px) + 62px);bottom:36%;width:min(48vw,560px);max-width:min(48vw,560px);margin:0;padding:0;box-sizing:border-box}
+  #hero>.wrap{position:absolute;z-index:2;left:clamp(16px,4vw,56px);bottom:36%;width:min(48vw,560px);max-width:min(48vw,560px);margin:0;padding:0;box-sizing:border-box}
   #hero .col{max-width:none;width:100%}
   #hero .eyebrow{margin-top:0;font-size:15px}
   /* exact two lines — each .hline is one locked line */
@@ -739,7 +739,7 @@ html{background:#060507}
 .zs .scrollcue{right:calc(clamp(16px,4vw,56px)*var(--z));bottom:calc((24px + env(safe-area-inset-bottom,0px))*var(--z));transform:scale(var(--z));transform-origin:100% 100%}
 /* herotest is local-only; hidden on live until .dev is set on localhost */
 html:not(.dev) #herotest,html:not(.dev) #nav a[href="#herotest"]{display:none!important}
-</style><script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||location.protocol==='file:')document.documentElement.classList.add('dev');function z(){var w=innerWidth,h=innerHeight,k=Math.min(w/1440,h/880);k=w>1500&&k>1.05?Math.min(k,2.4):1;window.__Z=k;document.documentElement.style.setProperty('--z',k.toFixed(4));document.documentElement.classList.toggle('zs',k>1);if(window.__pinHt)window.__pinHt()}z();addEventListener('resize',z)})();</script>
+</style><script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||location.protocol==='file:')document.documentElement.classList.add('dev');function z(){var w=innerWidth,h=innerHeight,k=Math.min(w/1440,h/880);k=w>1500&&k>1.05?Math.min(k,2.4):1;window.__Z=k;document.documentElement.style.setProperty('--z',k.toFixed(4));document.documentElement.classList.toggle('zs',k>1)}z();addEventListener('resize',z)})();</script>
 
 
 <div class="motion" id="motionBar" hidden><span>Animation is paused because your device is set to reduce motion.</span><button id="motionOn">Play animation</button></div>
@@ -1162,9 +1162,6 @@ function measure(){
 var svcOff=0,wlOff=0;function listOffsets(){function off(id,sec){var a=document.getElementById(id).getBoundingClientRect(),b=document.getElementById(sec).getBoundingClientRect();return (a.top+a.height/2)-(b.top+b.height/2)}svcOff=off('svcList','services');wlOff=off('wlist','work')}
 listOffsets();addEventListener('resize',listOffsets);addEventListener('load',listOffsets);setTimeout(listOffsets,1500);
 /* herotest copy left edge tracks the horizontal centre of the header wordmark (incl. wide-screen --z scale) */
-/* pin copy left edge to logo centre only — do not shrink width (that was breaking the two-line headline) */
-window.__pinHt=function(){var wrap=document.querySelector('#hero>.wrap'),brand=document.querySelector('.top .brand'),ht=document.getElementById('hero');if(!wrap)return;if(innerWidth<1024||!brand||!ht){wrap.style.left='';return}var b=brand.getBoundingClientRect(),h=ht.getBoundingClientRect();wrap.style.left=Math.round(b.left+b.width/2-h.left)+'px';wrap.style.width='';wrap.style.maxWidth=''};
-window.__pinHt();addEventListener('load',window.__pinHt);setTimeout(window.__pinHt,100);
 addEventListener('scroll',measure,{passive:true});addEventListener('resize',measure);measure();
 
 /* ---------- section lock: one wheel gesture or key press glides exactly one section (desktop only) ---------- */
