@@ -134,14 +134,14 @@ section > .wrap{width:100%}
 @media (min-width:1024px){
   #hero{position:relative;width:100%;height:100vh;min-height:640px;margin:0;padding:0;overflow:hidden;background:#4C1D95;display:block}
   #hero .ht-frame{display:none}
-  #hero .hero-img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:82% center;z-index:0;pointer-events:none}
-  #hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.28) 28%,rgba(0,0,0,.08) 42%,rgba(0,0,0,0) 55%)}
-  /* hard safe zone: copy ends at 42% so it cannot run into the figure */
-  #hero>.wrap{position:absolute;z-index:2;left:calc(clamp(16px,4vw,56px) + 62px);right:58%;bottom:36%;width:auto;max-width:420px;margin:0;padding:0;box-sizing:border-box}
+  /* left crop keeps the purple open for copy; right-biased position pulls her into the text */
+  #hero .hero-img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0;pointer-events:none}
+  #hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.12) 28%,rgba(0,0,0,0) 48%)}
+  #hero>.wrap{position:absolute;z-index:2;left:calc(clamp(16px,4vw,56px) + 62px);bottom:36%;width:min(36vw,400px);max-width:min(36vw,400px);margin:0;padding:0;box-sizing:border-box}
   #hero .col{max-width:none;width:100%}
   #hero .eyebrow{margin-top:0;font-size:15px}
-  #hero .h-xl{font-size:clamp(28px,2.35vw,46px);margin-top:22px;white-space:normal;max-width:100%}
-  #hero .lead{font-size:clamp(16px,1.2vw,18px);max-width:100%;margin-top:20px}
+  #hero .h-xl{font-size:clamp(32px,2.8vw,50px);margin-top:22px;white-space:normal;max-width:100%}
+  #hero .lead{font-size:clamp(16px,1.25vw,19px);max-width:100%;margin-top:22px}
   #hero .ctas{margin-top:32px;gap:14px}
   #hero .ctas .btn{height:46px;padding:0 22px;font-size:15px}
   #hero .col>.eyebrow:last-child{margin-top:24px;font-size:15px}
@@ -731,7 +731,7 @@ html{background:#060507}
 /* wide screens: scale the whole layout up in proportion instead of leaving empty margins */
 /* done with transform (not CSS zoom) so getBoundingClientRect and the element picker report real pixels; .zs is only set when --z > 1 */
 .zs section > .wrap,.zs .top .wrap{width:calc(100%/var(--z));transform:scale(var(--z))}
-.zs #hero > .wrap{width:auto;max-width:420px;right:58%;transform:none}
+.zs #hero > .wrap{width:min(36vw,400px);max-width:min(36vw,400px);transform:none}
 .zs .top .wrap{transform-origin:50% 0}
 .zs #process .wrap.pr-integr{left:0;right:0;width:calc(100%/var(--z));bottom:calc(60px*var(--z));transform-origin:50% 100%}
 .zs .hud{left:calc(clamp(16px,4vw,56px)*var(--z));bottom:calc((24px + env(safe-area-inset-bottom,0px))*var(--z));transform:scale(var(--z));transform-origin:0 100%}
@@ -1160,7 +1160,7 @@ function measure(){
 var svcOff=0,wlOff=0;function listOffsets(){function off(id,sec){var a=document.getElementById(id).getBoundingClientRect(),b=document.getElementById(sec).getBoundingClientRect();return (a.top+a.height/2)-(b.top+b.height/2)}svcOff=off('svcList','services');wlOff=off('wlist','work')}
 listOffsets();addEventListener('resize',listOffsets);addEventListener('load',listOffsets);setTimeout(listOffsets,1500);
 /* herotest copy left edge tracks the horizontal centre of the header wordmark (incl. wide-screen --z scale) */
-window.__pinHt=function(){var wrap=document.querySelector('#hero>.wrap'),brand=document.querySelector('.top .brand'),ht=document.getElementById('hero');if(!wrap)return;if(innerWidth<1024||!brand||!ht){wrap.style.left='';wrap.style.width='';wrap.style.maxWidth='';return}var b=brand.getBoundingClientRect(),h=ht.getBoundingClientRect(),left=Math.round(b.left+b.width/2-h.left),cap=Math.round(h.width*.4),w=Math.max(220,cap-left);wrap.style.left=left+'px';wrap.style.width=w+'px';wrap.style.maxWidth=w+'px'};
+window.__pinHt=function(){var wrap=document.querySelector('#hero>.wrap'),brand=document.querySelector('.top .brand'),ht=document.getElementById('hero');if(!wrap)return;if(innerWidth<1024||!brand||!ht){wrap.style.left='';wrap.style.width='';wrap.style.maxWidth='';return}var b=brand.getBoundingClientRect(),h=ht.getBoundingClientRect(),left=Math.round(b.left+b.width/2-h.left),cap=Math.round(h.width*.36),w=Math.min(400,Math.max(240,cap-left));wrap.style.left=left+'px';wrap.style.width=w+'px';wrap.style.maxWidth=w+'px'};
 window.__pinHt();addEventListener('load',window.__pinHt);setTimeout(window.__pinHt,100);
 addEventListener('scroll',measure,{passive:true});addEventListener('resize',measure);measure();
 
